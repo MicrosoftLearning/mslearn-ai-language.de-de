@@ -6,21 +6,21 @@ lab:
 
 # Extrahieren benutzerdefinierter Entitäten
 
-Zusätzlich zu anderen Funktionen für die linguistische Datenverarbeitung können Sie mit dem Azure KI Language-Dienst benutzerdefinierte Entitäten definieren und Instanznen davon aus Text extrahieren.
+Neben anderen Funktionen zur Verarbeitung natürlicher Sprache können Sie mit dem Azure AI Language Service benutzerdefinierte Entitäten definieren und Instanzen dieser Entitäten aus Text extrahieren.
 
 Um die benutzerdefinierte Entitätsextraktion zu testen, erstellen Sie zunächst ein Modell und trainieren es über Azure KI Language Studio. Anschließend verwenden Sie eine Befehlszeilenanwendung, um es zu testen.
 
 ## Bereitstellen einer *Azure KI Language*-Ressource
 
-Wenn Sie noch nicht über eine solche Ressource in Ihrem Abonnement verfügen, müssen Sie eine **Azure KI Language**-Dienstressource bereitstellen. Darüber hinaus müssen Sie benutzerdefinierte Textklassifizierung verwenden, um das Feature **Benutzerdefinierte Textklassifizierung und Extraktion** zu aktivieren.
+Wenn Sie noch keine solche Ressource in Ihrem Abonnement haben, müssen Sie eine **Azure KI Language**-Ressource bereitstellen. Darüber hinaus müssen Sie die Funktion **Benutzerdefinierte Textklassifizierung und Extraktion** aktivieren.
 
-1. Öffnen Sie in einem Browser das Azure-Portal unter `https://portal.azure.com`, und melden Sie sich mit Ihrem Microsoft-Konto an.
-1. Klicken Sie auf die Schaltfläche **Ressource erstellen**, suchen Sie nach *Language*, und erstellen Sie eine **Azure KI Language-Dienstressource**. Wenn Sie nach *zusätzlichen Features* gefragt werden, wählen Sie die Option **Benutzerdefinierte Textklassifizierung  -extraktion** aus. Erstellen Sie die Ressource mit den folgenden Einstellungen:
-    - **Abonnement:** *Geben Sie Ihr Azure-Abonnement an.*
-    - **Ressourcengruppe**: *Wählen Sie eine Ressourcengruppe aus, oder erstellen Sie sie.*
+1. Öffnen Sie das Azure-Portal in einem Browser unter `https://portal.azure.com` und melden Sie sich mit Ihrem Microsoft-Konto an.
+1. Klicken Sie auf die Schaltfläche **Ressource erstellen**, suchen Sie nach *Language*, und erstellen Sie eine **Azure KI Language-Dienstressource**. Wenn Sie nach *zusätzlichen Funktionen* gefragt werden, wählen Sie die Option **Benutzerdefinierte Textklassifizierung und -extraktion** aus. Erstellen Sie die Ressource mit den folgenden Einstellungen:
+    - **Abonnement**: *Geben Sie Ihr Azure-Abonnement an*.
+    - **Ressourcengruppe**: *Wählen oder erstellen Sie eine Ressourcengruppe*.
     - **Region**: *Wählen Sie eine beliebige verfügbare Region aus*.
     - **Name**: *Geben Sie einen eindeutigen Namen ein.*
-    - **Tarif**: Wählen Sie **F0** (*Free*) oder **S** (*Standard*) aus, falls F nicht verfügbar ist.
+    - **Tarif**: Wählen Sie **F0** (*kostenlos*) oder **S** (*Standard*), wenn F nicht verfügbar ist.
     - **Speicherkonto**: Neues Speicherkonto:
       - **Speicherkontoname**: *Geben Sie einen eindeutigen Namen ein*.
       - **Speicherkontotyp**: Standard-LRS
@@ -28,31 +28,31 @@ Wenn Sie noch nicht über eine solche Ressource in Ihrem Abonnement verfügen, m
 
 1. Wählen Sie **Überprüfen und erstellen** aus und dann **Erstellen**, um die Ressource bereitzustellen.
 1. Warten Sie, bis die Bereitstellung abgeschlossen ist, und wechseln Sie dann zur bereitgestellten Ressource.
-1. Zeigen Sie die Seite **Schlüssel und Endpunkt** an. Sie benötigen die Informationen auf dieser Seite später in der Übung.
+1. Sehen Sie sich die Seite **Schlüssel und Endpunkt** an. Sie benötigen die Informationen auf dieser Seite später in der Übung.
 
 ## Hochladen von Beispielanzeigen
 
 Nachdem Sie den Azure KI Language-Dienst und das Speicherkonto erstellt haben, müssen Sie Beispielanzeigen hochladen, mit denen das Modell später trainiert werden soll.
 
-1. Laden Sie auf einer neuen Browserregisterkarte klassifizierte Beispielanzeigen von `https://aka.ms/entity-extraction-ads` herunter, und extrahieren Sie die Dateien in einen Ordner Ihrer Wahl.
+1. Laden Sie in einem neuen Browserfenster als Beispiel klassifizierte Anzeigen von `https://aka.ms/entity-extraction-ads`herunter und extrahieren Sie die Dateien in einen Ordner Ihrer Wahl.
 
 2. Navigieren Sie im Azure-Portal zu dem Speicherkonto, das Sie erstellt haben, und wählen Sie es aus.
 
-3. Wählen Sie in Ihrem Speicherkonto **Konfiguration** unter **Einstellungen** aus, aktivieren Sie die Option **Anonymen Blobzugriff zulassen**, und wählen Sie dann **Speichern** aus.
+3. Wählen Sie in Speicherkonto unter **Einstellungen** die Option **Konfiguration** aus, und aktivieren Sie die Option **Anonymen Blob-Zugriff zulassen**. Wählen Sie anschließend **Speichern** aus.
 
-4. Wählen Sie im Menü auf der linken Seite unter **Datenspeicher** die Option **Container** aus. Klicken Sie im angezeigten Bildschirm auf **+ Container**. Geben Sie dem Container den Namen `classifieds`, und legen Sie die Option **Anonyme Zugriffsebene** auf **Container (Anonymer Lesezugriff für Container und Blobs)** fest.
+4. Klicken Sie im linken Menü unter **Datenspeicher** auf **Container**. Klicken Sie im angezeigten Bildschirm auf **+ Container**. Geben Sie dem Container den Namen `classifieds`, und legen Sie die Option **Anonyme Zugriffsebene** auf **Container (Anonymer Lesezugriff für Container und Blobs)** fest.
 
-    > **HINWEIS**: Achten Sie beim Konfigurieren eines Speicherkontos für eine echte Lösung darauf, die geeignete Zugriffsebene zuzuweisen. Weitere Informationen zu den einzelnen Zugriffsebenen finden Sie in der [Azure Storage-Dokumentation](https://learn.microsoft.com/azure/storage/blobs/anonymous-read-access-configure).
+    > **HINWEIS**: Wenn Sie ein Speicherkonto für eine echte Lösung konfigurieren, achten Sie darauf, dass Sie die richtige Zugriffsstufe zuweisen. Weitere Informationen zu den einzelnen Zugriffsebenen finden Sie in der [Dokumentation zu Azure Storage](https://learn.microsoft.com/azure/storage/blobs/anonymous-read-access-configure).
 
-5. Nachdem der Container erstellt wurde, wählen Sie ihn aus, und klicken Sie auf die Schaltfläche **Hochladen**, und laden Sie die heruntergeladenen Beispielanzeigen hoch.
+5. Wählen Sie den erstellten Container aus, und klicken Sie auf die Schaltfläche **Hochladen**, um die heruntergeladenen Beispielanzeigen hochzuladen.
 
-## Erstellen eines benutzerdefinierten Projekts zur Erkennung benannter Entitäten
+## Erstellen eines Projekts für benutzerdefinierte benannte Entitätserkennung
 
-Jetzt können Sie ein Projekt für die benutzerdefinierte benannte Entitätserkennung neu erstellen. Dieses Projekt bietet einen Arbeitsplatz, an dem Sie Ihr Model erstellen, trainieren und bereitstellen können.
+Erstellen Sie nun ein benutzerdefiniertes Projekt zur Erkennung benannter Entitäten. Dieses Projekt bietet einen Arbeitsplatz, an dem Sie Ihr Modell erstellen, trainieren und bereitstellen können.
 
-> **HINWEIS**: Sie können Ihr Modell auch über die REST-API erstellen, trainieren und bereitstellen.
+> **Hinweis**: Sie können Ihr Modell auch über die REST-API erstellen, trainieren und bereitstellen.
 
-1. Öffnen Sie auf einer neuen Browserregisterkarte das Azure KI Language Studio-Portal unter `https://language.cognitive.azure.com/`, und melden Sie sich mit dem Microsoft-Konto an, das Ihrem Azure-Abonnement zugeordnet ist.
+1. Öffnen Sie in einem neuen Browserfenster das Azure KI Language Studio-Portal unter `https://language.cognitive.azure.com/`, und melden Sie sich mit dem Microsoft-Konto an, das Ihrem Azure-Abonnement zugeordnet ist.
 1. Wenn Sie zur Auswahl einer Sprachressource aufgefordert werden, wählen Sie die folgenden Einstellungen aus:
 
     - **Azure-Verzeichnis**: Das Azure-Verzeichnis mit Ihrem Abonnement.
@@ -65,46 +65,46 @@ Jetzt können Sie ein Projekt für die benutzerdefinierte benannte Entitätserke
     1. Klicken Sie auf der Leiste oben auf die Schaltfläche **Einstellungen (&#9881;)**.
     2. Gehen Sie auf der Seite **Einstellungen** zur Registerkarte **Ressourcen**.
     3. Wählen Sie die soeben erstellte Sprachressource aus, und klicken Sie auf **Switch resource** (Ressource wechseln).
-    4. Klicken Sie oben auf der Seite auf **Language Studio**, um zur Homepage von Language Studio zurückzukehren.
+    4. Klicken Sie oben auf der Seite auf **Language Studio**, um zur Startseite von Language Studio zurückzukehren.
 
-1. Wählen Sie oben im Portal im Menü **Neu erstellen** die Option *Benutzerdefinierte benannte Entitätserkennung** aus.
+1. Wählen Sie oben im Portal im Menü **Neu erstellen** die Option *Benutzerdefinierte benannte Entitätserkennung**.
 
 1. Erstellen Sie ein neues Projekt mit den folgenden Einstellungen:
-    - **Speicher verbinden**: *Dieser Wert ist wahrscheinlich bereits ausgefüllt. Ändern Sie ihn in Ihr Speicherkonto, sofern dies nicht bereits der Fall ist.*
+    - **Speicher verbinden**: *Dieser Wert ist wahrscheinlich bereits ausgefüllt. Ändern Sie ihn gegebenenfalls und geben Sie Ihr Speicherkonto an.*
     - **Grundlegende Informationen:**
     - **Name**: `CustomEntityLab`
         - **Primäre Textsprache**: Englisch (USA)
-        - **Enthält Ihr Dataset Dokumente, die nicht in der gleichen Sprache verfasst sind?** : *Nein*
-        - **Beschreibung:** `Custom entities in classified ads`
+        - **Enthält Ihr Dataset Dokumente, die nicht in der gleichen Sprache verfasst sind?** *Nein*
+        - **Beschreibung**: `Custom entities in classified ads`
     - **Container:**
-        - **Blobspeichercontainer**: Kleinanzeigen
+        - **Blob-Speichercontainer**: klassifiziert
         - **Sind Ihre Dateien mit Klassen getaggt?**: Nein, ich muss meine Dateien als Teil dieses Projekts taggen.
 
 ## Beschriften Ihrer Daten
 
 Nachdem Sie das Projekt erstellt haben, müssen Sie Ihre Daten taggen, um das Modell für die Erkennung von Entitäten zu trainieren.
 
-1. Wenn die Seite **Datenbeschriftung** noch nicht geöffnet ist, wählen Sie im Bereich auf der linken Seite die Option **Datenbeschriftung** aus. Es wird eine Liste der Dateien angezeigt, die Sie in Ihr Speicherkonto hochgeladen haben.
-1. Wählen Sie rechts im Bereich **Aktivität** die Option **Entität hinzufügen** aus, und fügen Sie eine neue Entität namens `ItemForSale` hinzu.
+1. Wenn die Seite **Datenbeschriftung** noch nicht geöffnet ist, wählen Sie im Bereich auf der linken Seite **Datenbeschriftung** aus. Es wird eine Liste der Dateien angezeigt, die Sie in Ihr Speicherkonto hochgeladen haben.
+1. Wählen Sie rechts im Bereich **Aktivität** die Option **Entität hinzufügen** und fügen Sie eine neue Entität mit Namen `ItemForSale` hinzu.
 1.  Wiederholen Sie den vorherigen Schritt, um die folgenden Entitäten zu erstellen:
     - `Price`
     - `Location`
-1. Nachdem Sie Ihre drei Entitäten erstellt haben, wählen Sie **Ad 1.txt** aus, damit Sie sie lesen können.
+1. Nachdem Sie die drei Entitäten erstellt haben, wählen Sie **Ad 1.txt** aus, und lesen Sie die Anzeige.
 1. In *Ad 1.txt*: 
-    1. Markieren Sie den Text *face cord of firewood*, und wählen Sie die Entität **ItemForSale** aus.
-    1. Markieren Sie den Text *Denver, CO*, und wählen Sie die Entität **Location** aus.
-    1. Markieren Sie den Text *$90*, und wählen Sie die Entität **Price** aus.
-1. Beachten Sie im Bereich **Aktivität**, dass dieses Dokument zum Dataset zum Trainieren des Modells hinzugefügt wird.
-1. Wechseln Sie mit der Schaltfläche **Nächstes Dokument** zum nächsten Dokument, und setzen Sie das Zuweisen von Text zu den entsprechenden Entitäten für die gesamte Gruppe von Dokumenten fort. Fügen Sie also alle dem Trainingsdataset hinzu.
-1. Wenn Sie das letzte Dokument (*Ad 9.txt*) beschriftet haben, speichern Sie die Beschriftungen.
+    1. Heben Sie den Text *face cord of firewood* hervor und wählen Sie die Entität **ItemForSale** aus.
+    1. Heben Sie den Text *Denver, CO* hervor und wählen Sie die Entität **Ort** aus.
+    1. Heben Sie den Text *$90* hervor, und wählen Sie die Entität **Preis** aus.
+1. Beachten Sie im Fenster **Aktivität**, dass dieses Dokument dem Datensatz für das Training des Modells hinzugefügt wird.
+1. Gehen Sie zum nächsten Dokument (Schaltfläche **Nächstes Dokument**). Weisen Sie weiter Text zu den entsprechenden Entitäten zu. Weisen Sie den Text dem gesamten Satz von Dokumenten zu, indem Sie alles dem Trainingsdatensatz hinzufügen.
+1. Nachdem Sie das letzte Dokument (*Ad 9.txt*) beschriftet haben, speichern Sie die Beschriftungen.
 
-## Trainieren Ihres Modells
+## Trainieren des Modells
 
-Nachdem Sie Ihre Daten getaggt haben, müssen Sie Ihr Modell trainieren.
+Sie haben die Daten beschriftet. Nun wird das Modell trainiert.
 
-1. Wählen Sie im Bereich auf der linken Seite **Trainingsaufträge** aus.
-2. Wählen Sie **Trainingsauftrag starten** aus.
-3. Wählen Sie die Option zum Trainieren eines neuen Modells mit dem Namen `ExtractAds` aus.
+1. Wählen Sie im Fensterbereich links die Option **Trainingsaufträge** aus.
+2. Klicken Sie auf **Trainingsauftrag starten**.
+3. Trainieren des neuen Modells `ExtractAds`
 4. Wählen Sie **Automatisches Aufteilen des Testsatzes aus Trainingsdaten** aus.
 
     > **TIPP**: Verwenden Sie bei Ihren eigenen Extraktionsprojekten die Testaufteilung, die am besten zu Ihren Daten passt. Bei konsistenteren Daten und größeren Datasets teilt der Azure KI Language-Dienst den Testsatz automatisch prozentual auf. Bei kleineren Datasets ist es wichtig, mit der richtigen Auswahl an möglichen Eingabedokumenten zu trainieren.
@@ -124,17 +124,17 @@ Wählen Sie im Menü auf der linken Seite **Leistung der Modelle** aus, und wäh
 Sobald Sie mit den Trainingsergebnissen Ihres Modells zufrieden sind, stellen Sie es bereit. Auf diese Weise können Sie Entitäten über die API erkennen.
 
 1. Wählen Sie im linken Bereich **Modell bereitstellen** aus.
-2. Wählen Sie **Bereitstellung hinzufügen** aus, geben Sie dann den Namen `AdEntities` ein, und wählen Sie das Modell **ExtractAds** aus.
+2. Wählen Sie **Bereitstellung hinzufügen** aus, geben Sie dann den Namen `AdEntities` ein, und wählen Sie das Modell **ExtractAds** aus der Dropdownliste für das Modell aus.
 3. Klicken Sie auf **Bereitstellen**, um Ihr Modell bereitzustellen.
 
-## Vorbereiten der Entwicklung einer App in Visual Studio Code
+## Vorbereitung auf das Entwickeln einer App in Visual Studio Code
 
-Um die benutzerdefinierten Extraktionsfunktionen für Entitäten des Azure KI Language-Diensts zu testen, entwickeln Sie eine einfache Konsolenanwendung in Visual Studio Code.
+Um die benutzerdefinierten Entitätsextraktion des Azure KI Language-Dienstes zu testen, entwickeln Sie eine einfache Konsolenanwendung in Visual Studio Code.
 
-> **Tipp**: Wenn Sie das Repository **mslearn-ai-language** bereits geklont haben, öffnen Sie es in Visual Studio Code. Führen Sie andernfalls die folgenden Schritte aus, um es in Ihrer Entwicklungsumgebung zu klonen.
+> **Tipp**: Wenn Sie das Repository **mslearn-ai-language** bereits geklont haben, öffnen Sie es in Visual Studio Code. Führen Sie andernfalls die folgenden Schritte aus, um es in Ihre Entwicklungsumgebung zu klonen.
 
 1. Starten Sie Visual Studio Code.
-2. Öffnen Sie die Palette (UMSCHALT+STRG+P), und führen Sie einen **Git: Clone**-Befehl aus, um das Repository `https://github.com/MicrosoftLearning/mslearn-ai-language` in einen lokalen Ordner zu klonen (der Ordner ist beliebig).
+2. Öffnen Sie die Palette (UMSCHALT+STRG+P), und führen Sie einen **Git: Clone**-Befehl aus, um das Repository `https://github.com/MicrosoftLearning/mslearn-ai-language` in einen lokalen Ordner zu klonen (der Ordner ist beliebig)..
 3. Nachdem das Repository geklont wurde, öffnen Sie den Ordner in Visual Studio Code.
 4. Warten Sie, während zusätzliche Dateien zur Unterstützung der C#-Codeprojekte im Repository installiert werden.
 
@@ -142,10 +142,10 @@ Um die benutzerdefinierten Extraktionsfunktionen für Entitäten des Azure KI La
 
 ## Konfigurieren der Anwendung
 
-Es werden Anwendungen für C# und Python bereitgestellt sowie eine Beispieltextdatei, mit der Sie die Zusammenfassung testen können. Beide Apps verfügen über die gleiche Funktionalität. Zuerst schließen Sie einige wichtige Teile der Anwendung ab, um die Verwendung Ihrer Azure KI Language-Ressource zu aktivieren.
+Es werden Anwendungen für C# und Python bereitgestellt sowie eine Beispieltextdatei, mit der Sie die Zusammenfassung testen können. Beide Apps verfügen über die gleiche Funktionalität. In dieser Übung stellen Sie zunächst einige wichtige Teile der Anwendung fertig, um die Verwendung Ihrer Azure KI Language-Ressource zu aktivieren.
 
-1. Navigieren Sie im Bereich ** Explorer** in Visual Studio Code zum Ordner **Labfiles/05-custom-entity-recognition**, und erweitern Sie je nach Ihrer bevorzugten Sprache den Ordner **CSharp** oder **Python** und den darin enthaltenen Ordner **custom-entities**. Jeder Ordner enthält die sprachspezifischen Dateien für eine App, in die Sie Azure KI Language-Textklassifizierungsfunktionen integrieren.
-1. Klicken Sie mit der rechten Maustaste auf den Ordner **custom-entities**, der Ihre Codedateien enthält, und öffnen Sie ein integriertes Terminal. Installieren Sie dann das Azure KI Language-Textanalyse-SDK-Paket, indem Sie den entsprechenden Befehl für Ihre bevorzugte Sprache ausführen:
+1. Wechseln Sie im Fensterbereich **Explorer** in Visual Studio Code zum Ordner **Labfiles/05-custom-entity-recognition**, und erweitern Sie je nach der bevorzugten Sprache den Ordner **CSharp** oder **Python** und den darin enthaltenen Ordner **custom-entities**. Jeder Ordner enthält die sprachspezifischen Dateien für eine App, in die Sie die Textklassifizierungsfunktion von Azure KI Language integrieren werden.
+1. Klicken Sie mit der rechten Maustaste auf den Ordner **custom-entities**, der Ihre Code-Dateien enthält und öffnen Sie ein integriertes Terminal. Installieren Sie dann das SDK-Paket für die Azure KI Language-Textanalyse. Führen Sie dafür den entsprechenden Befehl für Ihre bevorzugte Sprache aus:
 
     **C#:**
 
@@ -164,20 +164,20 @@ Es werden Anwendungen für C# und Python bereitgestellt sowie eine Beispieltextd
     - **C#** : appsettings.json
     - **Python**: .env
     
-1. Aktualisieren Sie die Konfigurationswerte so, dass sie den **Endpunkt** und einen **Schlüssel** aus der Azure KI Language-Ressource enthalten, die Sie erstellt haben (verfügbar auf der Seite **Schlüssel und Endpunkt** für Ihre Azure KI Language-Ressource im Azure-Portal). Die Datei sollte bereits die Projekt- und Bereitstellungsnamen für Ihr benutzerdefiniertes Extraktionsmodell für Entitäten enthalten.
+1. Aktualisieren Sie die Konfigurationswerte, sodass sie den **Endpunkt** und einen **Schlüssel** aus der von Ihnen erstellten Azure Language-Ressource (verfügbar auf der Seite **Schlüssel und Endpunkt** für Ihre Azure KI Language-Ressource im Azure-Portal) enthalten. Die Datei sollte bereits die Projekt- und Bereitstellungsnamen für Ihr benutzerdefiniertes Modell der Entitätsextraktion enthalten.
 1. Speichern Sie die Konfigurationsdatei.
 
 ## Hinzufügen von Code zum Extrahieren von Entitäten
 
-Jetzt können Sie den Azure KI Language-Dienst verwenden, um benutzerdefinierte Entitäten aus Text zu extrahieren.
+Jetzt ist die Vorbereitung abgeschlossen und Sie können mit dem Azure KI Language-Dienst benutzerdefinierte Entitäten aus Text extrahieren.
 
-1. Erweitern Sie den Ordner **ads** im Ordner **custom-entities**, um die klassifizierten Anzeigen anzuzeigen, die Ihre Anwendung analysieren soll.
+1. Erweitern Sie den Ordner **Anzeigen** im Ordner **custom-entities**. Sie sehen darin die klassifizierten Anzeigen die Ihre Anwendung analysieren wird.
 1. Öffnen Sie im Ordner **custom-entities** die Codedatei für die Clientanwendung:
 
-    - **C#** : Program.cs
+    - **C#**: Program.cs
     - **Python**: custom-entities.py
 
-1. Suchen Sie den Kommentar **Import namespaces**. Fügen Sie dann unter diesem Kommentar den folgenden sprachspezifischen Code hinzu, um die Namespaces zu importieren, die Sie benötigen, um das Textanalyse-SDK verwenden zu können:
+1. Suchen Sie den Kommentar **Namespaces importieren**. Fügen Sie dann unter diesem Kommentar den folgenden sprachspezifischen Code hinzu, um die Namespaces zu importieren, die Sie benötigen, um das Textanalyse-SDK verwenden zu können:
 
     **C#**: Programs.cs
 
@@ -195,7 +195,7 @@ Jetzt können Sie den Azure KI Language-Dienst verwenden, um benutzerdefinierte 
     from azure.ai.textanalytics import TextAnalyticsClient
     ```
 
-1. Beachten Sie, dass in der Funktion **Main** der Code zum Laden des Schlüssels und des Endpunkts des Azure KI Language-Diensts und der Projekt- und Bereitstellungsnamen aus der Konfigurationsdatei bereits bereitgestellt wurde. Suchen Sie dann den Kommentar **Create client using endpoint and key** (Client mit Endpunkt und Schlüssel erstellen), und fügen Sie den folgenden Code hinzu, um einen Client für die Textanalyse-API zu erstellen:
+1. In der **Main**-Funktion ist zu beachten, dass der Code zum Laden des Azure KI Language Service-Endpunkts und -Schlüssels sowie der Projekt- und Bereitstellungsnamen aus der Konfigurationsdatei bereits vorhanden ist. Suchen Sie dann den Kommentar **Create client using endpoint and key** (Client mit Endpunkt und Schlüssel erstellen), und fügen Sie den folgenden Code hinzu, um einen Client für die Textanalyse-API zu erstellen:
 
     **C#**: Programs.cs
 
@@ -214,10 +214,10 @@ Jetzt können Sie den Azure KI Language-Dienst verwenden, um benutzerdefinierte 
     ai_client = TextAnalyticsClient(endpoint=ai_endpoint, credential=credential)
     ```
 
-1. Beachten Sie in der Funktion **Main**, dass der vorhandene Code alle Dateien im Ordner **articles** liest und eine Liste erstellt, die deren Inhalt enthält. Im Fall des C#-Codes wird die Liste der **TextDocumentInput**-Objekte verwendet, um den Dateinamen als ID und die Sprache einzuschließen. In Python wird eine einfache Liste der Textinhalte verwendet.
-1. Suchen Sie die Kommentar **Extract entities**, und fügen Sie den folgenden Code hinzu:
+1. In der **Main**-Funktion ist zu beachten, dass der vorhandene Code alle Dateien aus dem Ordner**Artikel** liest und eine Liste mit deren Inhalt erstellt. Der C#-Codes verwendet eine Liste von **TextDocumentInput**-Objekten, um den Dateinamen (als eine ID) und die Sprache anzugeben. In Python wird eine einfache Liste der Textinhalte verwendet.
+1. Suchen Sie die Kommentarextraktionsentitäten****, und fügen Sie den folgenden Code hinzu:
 
-    **C#** : Program.cs
+    **C#**: Program.cs
 
     ```csharp
     // Extract entities
@@ -284,20 +284,20 @@ Jetzt können Sie den Azure KI Language-Dienst verwenden, um benutzerdefinierte 
             )
     ```
 
-1. Speichern Sie die Änderungen an der Codedatei.
+1. Speichern Sie die Änderungen an der Code-Datei.
 
 ## Testen Ihrer Anwendung
 
 Ihre Anwendung kann jetzt getestet werden.
 
-1. Geben Sie im integrierten Terminal für den Ordner **classify-text** den folgenden Befehl zur Ausführung des Programms ein:
+1. Geben Sie das integrierte Terminal für den Ordner **classify-text** zurück und dann den folgenden Befehl zur Ausführung des Programms ein:
 
-    - **C#** : `dotnet run`
+    - **C#**: `dotnet run`
     - **Python**: `python custom-entities.py`
 
-    > **Tipp**: Sie können das Symbol **Fenstergröße maximieren** (**^**) in der Terminalsymbolleiste verwenden, um mehr vom Konsolentext anzuzeigen.
+    > **Tipp**: Sie können das Symbol " **Panelgröße** maximieren" (**^**) in der Terminalsymbolleiste verwenden, um mehr über den Konsolentext anzuzeigen.
 
-1. Beobachten Sie die Ausgabe. Die Anwendung sollte Details der Entitäten in jeder Textdatei auflisten.
+1. Beobachten Sie die Ausgabe. Die Anwendung sollte Details der Entitäten in den einzelnen Textdateien auflisten.
 
 ## Bereinigen
 

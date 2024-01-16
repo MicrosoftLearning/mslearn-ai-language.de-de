@@ -12,27 +12,27 @@ Angenommen, ein Reiseunternehmen möchte Hotelbewertungen verarbeiten, die auf d
 
 ## Bereitstellen einer *Azure KI Language*-Ressource
 
-Wenn Sie noch keine in Ihrem Abonnement haben, müssen Sie eine **Azure KI Language**-Dienstressource in Ihrem Azure-Abonnement bereitstellen.
+Wenn Sie noch nicht über eine solche Ressource in Ihrem Abonnement verfügen, müssen Sie eine **Azure KI Language Services**-Ressource Ihrem Azure-Abonnement bereitstellen.
 
 1. Öffnen Sie das Azure-Portal unter `https://portal.azure.com`, und melden Sie sich mit dem Microsoft-Konto an, das Ihrem Azure-Abonnement zugeordnet ist.
 1. Suchen Sie im oberen Suchfeld nach **Azure KI Services**. Wählen Sie dann in den Ergebnissen unter **Sprachdienst** die Option **Erstellen** aus.
 1. Klicken Sie auf **Continue to create your resource** (Mit Erstellung Ihrer Ressource fortfahren).
-1. Stellen Sie die Ressource mithilfe der folgenden Einstellungen bereit:
+1. Stellen Sie die Ressource mit den folgenden Einstellungen bereit:
     - **Abonnement**: *Ihr Azure-Abonnement*.
-    - **Ressourcengruppe**: *Wählen Sie eine Ressourcengruppe aus, oder erstellen Sie eine*.
+    - **Ressourcengruppe**: *Wählen oder erstellen Sie eine Ressourcengruppe*.
     - **Region**: *Wählen Sie eine beliebige verfügbare Region aus*.
     - **Name**: *Geben Sie einen eindeutigen Namen ein*.
-    - **Tarif**: Wählen Sie **F0** (*Free*) oder **S** (*Standard*) aus, falls F nicht verfügbar ist.
+    - **Tarif**: Wählen Sie **F0** (*kostenlos*) oder **S** (*Standard*), wenn F nicht verfügbar ist.
     - **Hinweis zu verantwortungsvoller KI**: Zustimmen.
 1. Klicken Sie auf **Überprüfen + erstellen**.
 1. Warten Sie, bis die Bereitstellung abgeschlossen ist, und wechseln Sie dann zur bereitgestellten Ressource.
-1. Zeigen Sie die Seite **Schlüssel und Endpunkt** an. Sie benötigen die Informationen auf dieser Seite später in der Übung.
+1. Sehen Sie sich die Seite **Schlüssel und Endpunkt** an. Sie benötigen die Informationen auf dieser Seite später in der Übung.
 
-## Vorbereiten der Entwicklung einer App in Visual Studio Code
+## Vorbereitung auf das Entwickeln einer App in Visual Studio Code
 
 Sie entwickeln Ihre Textanalyse-App mit Visual Studio Code. Die Codedateien für Ihre App wurden in einem GitHub-Repository bereitgestellt.
 
-> **Tipp**: Wenn Sie das Repository **mslearn-ai-language** bereits geklont haben, öffnen Sie es in Visual Studio Code. Führen Sie andernfalls die folgenden Schritte aus, um es in Ihrer Entwicklungsumgebung zu klonen.
+> **Tipp**: Wenn Sie das Repository **mslearn-ai-language** bereits geklont haben, öffnen Sie es in Visual Studio Code. Führen Sie andernfalls die folgenden Schritte aus, um es in Ihre Entwicklungsumgebung zu klonen.
 
 1. Starten Sie Visual Studio Code.
 2. Öffnen Sie die Palette (UMSCHALT+STRG+P), und führen Sie einen **Git: Clone**-Befehl aus, um das Repository `https://github.com/MicrosoftLearning/mslearn-ai-language` in einen lokalen Ordner zu klonen (der Ordner ist beliebig).
@@ -43,10 +43,10 @@ Sie entwickeln Ihre Textanalyse-App mit Visual Studio Code. Die Codedateien für
 
 ## Konfigurieren der Anwendung
 
-Es werden Anwendungen für C# und Python bereitgestellt sowie eine Beispieltextdatei, mit der Sie die Zusammenfassung testen können. Beide Apps verfügen über die gleiche Funktionalität. Zuerst schließen Sie einige wichtige Teile der Anwendung ab, um die Verwendung Ihrer Azure KI Language-Ressource zu aktivieren.
+Es werden Anwendungen für C# und Python bereitgestellt sowie eine Beispieltextdatei, mit der Sie die Zusammenfassung testen können. Beide Apps verfügen über die gleiche Funktionalität. In dieser Übung stellen Sie zunächst einige wichtige Teile der Anwendung fertig, um die Verwendung Ihrer Azure KI Language-Ressource zu aktivieren.
 
-1. Wechseln Sie in Visual Studio Code im Bereich **Explorer** zum Ordner **Labfiles/01-analyze-text**, und erweitern Sie je nach Ihrer bevorzugten Sprache den Ordner **CSharp** oder **Python** und den darin enthaltenen Ordner **text-analytics**. Jeder Ordner enthält die sprachspezifischen Dateien für eine App, in die Sie die Textanalysefunktionen von Azure KI Language integrieren möchten.
-2. Klicken Sie mit der rechten Maustaste auf den Ordner **text-analytics**, der Ihre Codedateien enthält, und öffnen Sie ein integriertes Terminal. Installieren Sie dann das Azure KI Language-Textanalyse-SDK-Paket, indem Sie den entsprechenden Befehl für Ihre bevorzugte Sprache ausführen:
+1. Wechseln Sie in Visual Studio Code im **Explorer**-Bereich zum Ordner **Labfiles/01-analyze-text**, und erweitern Sie je nach Ihrer bevorzugten Sprache den Ordner **CSharp** oder **Python** und den darin enthaltenen Ordner **text-analytics**. Jeder Ordner enthält die sprachspezifischen Dateien für eine App, in die Sie die Textanalysefunktion Azure KI Language integrieren möchten.
+2. Klicken Sie mit der rechten Maustaste auf den Ordner **text-analysis**, der Ihre Code-Dateien enthält, und öffnen Sie ein integriertes Terminal. Installieren Sie dann das Textanalyse-SDK-Paket Azure KI Language, indem Sie den entsprechenden Befehl für Ihre bevorzugte Sprache ausführen: Installieren Sie für die Python-Übung auch das `dotenv`-Paket:
 
     **C#:**
 
@@ -58,19 +58,20 @@ Es werden Anwendungen für C# und Python bereitgestellt sowie eine Beispieltextd
 
     ```
     pip install azure-ai-textanalytics==5.3.0
+    pip install python-dotenv
     ```
 
-3. Öffnen Sie im Bereich **Explorer** im Ordner **text-analytics** die Konfigurationsdatei für Ihre bevorzugte Sprache.
+3. Öffnen Sie im **Explorer**-Bereich im Ordner **text-analytics** die Konfigurationsdatei für Ihre bevorzugte Sprache.
 
-    - **C#** : appsettings.json
+    - **C#**: appsettings.json
     - **Python**: .env
     
-4. Aktualisieren Sie die Konfigurationswerte so, dass sie den **Endpunkt** und einen **Schlüssel** aus der Azure Language-Ressource enthalten, die Sie erstellt haben (verfügbar auf der Seite **Schlüssel und Endpunkt** für Ihre Azure KI Language-Ressource im Azure-Portal).
+4. Aktualisieren Sie die Konfigurationswerte, sodass sie den **Endpunkt** und einen **Schlüssel** aus der von Ihnen erstellten Azure Language-Ressource (verfügbar auf der Seite **Schlüssel und Endpunkt** für Ihre Azure KI Language-Ressource im Azure-Portal) enthalten.
 5. Speichern Sie die Konfigurationsdatei.
 
 6. Beachten Sie, dass der Ordner **text-analysis** eine Codedatei für die Clientanwendung enthält:
 
-    - **C#** : Program.cs
+    - **C#**: Program.cs
     - **Python**: text-analysis.py
 
     Öffnen Sie die Codedatei, und suchen Sie oben unter den vorhandenen Namespaceverweisen nach dem Kommentar **Import namespaces** (Namespaces importieren). Fügen Sie dann unter diesem Kommentar den folgenden sprachspezifischen Code hinzu, um die Namespaces zu importieren, die Sie benötigen, um das Textanalyse-SDK verwenden zu können:
@@ -112,16 +113,16 @@ Es werden Anwendungen für C# und Python bereitgestellt sowie eine Beispieltextd
 
 8. Speichern Sie Ihre Änderungen, und kehren Sie zum integrierten Terminal in den Ordner **text-analysis** zurück, und geben Sie den folgenden Befehl ein, um das Programm auszuführen:
 
-    - **C#** : `dotnet run`
+    - **C#**: `dotnet run`
     - **Python**: `python text-analysis.py`
 
-    > **Tipp**: Sie können das Symbol **Fenstergröße maximieren** (**^**) in der Terminalsymbolleiste verwenden, um mehr vom Konsolentext anzuzeigen.
+    > **Tipp**: Sie können das Symbol **Maximize panel size** (Panelgröße maximieren) (**^**) in der Terminalsymbolleiste verwenden, um mehr des Konsolentexts anzuzeigen.
 
 9. Beobachten Sie die Ausgabe, da der Code ohne Fehler ausgeführt werden sollte, wobei der Inhalt jeder Bewertungstextdatei im Ordner **reviews** angezeigt wird. Die Anwendung erstellt erfolgreich einen Client für die Textanalyse-API, nutzt ihn aber nicht. Dies wird im nächsten Verfahren behoben.
 
 ## Hinzufügen von Code zum Erkennen der Sprache
 
-Nachdem Sie nun einen Client für die API erstellt haben, können wir diesen verwenden, um die Sprache zu erkennen, in der die einzelnen Bewertungen verfasst sind.
+Nun, da Sie einen Client für die API erstellt haben, können wir diesen verwenden, um die Sprache zu erkennen, in der die einzelnen Bewertungen verfasst sind.
 
 1. Suchen Sie in der **Main**-Funktion für Ihr Programm den Kommentar **Get language** (Sprache erhalten). Fügen Sie dann unter diesem Kommentar den Code hinzu, der zum Erkennen der Sprache im jeweiligen Bewertungsdokument erforderlich ist:
 
@@ -143,16 +144,16 @@ Nachdem Sie nun einen Client für die API erstellt haben, können wir diesen ver
 
      > **Hinweis**: *In diesem Beispiel wird jede Bewertung einzeln analysiert, was zu einem separaten Aufruf des Diensts für jede Datei führt. Ein alternativer Ansatz besteht in der Erstellung einer Sammlung von Dokumenten und deren Übergeben an den Dienst in einem einzigen Aufruf. Bei beiden Ansätzen besteht die Antwort des Diensts aus einer Sammlung von Dokumenten. Dies ist der Grund, warum im obigen Python-Code der Index des ersten (und einzigen) Dokuments in der Antwort ([0]) angegeben ist.*
 
-1. Speichern Sie die Änderungen. Kehren Sie dann zum integrierten Terminal für den Ordner **text-analysis** zurück, und führen Sie das Programm erneut aus.
+1. Speichern Sie die Änderungen. Kehren Sie dann zum integrierten Terminal in den Ordner **text-analysis** zurück, und führen sie das Programm erneut aus.
 1. Sehen Sie sich die Ausgabe an, und beachten Sie, dass dieses Mal die Sprache für jede Bewertung identifiziert wird.
 
-## Hinzufügen von Code zum Auswerten der Stimmung
+## Hinzufügen von Code zum Auswerten des Standpunkts
 
 *Standpunktanalyse* ist eine häufig verwendete Methode zur Klassifizierung von Text als *positiv* oder *negativ* (oder möglicherweise als *neutral* oder *gemischt*). Sie wird häufig verwendet, um Beiträge in sozialen Medien, Produktbewertungen und andere Elemente zu analysieren, bei denen der Standpunkt des Texts nützliche Erkenntnisse liefern kann.
 
 1. Suchen Sie in der **Main**-Funktion für Ihr Programm den Kommentar **Get sentiment** (Standpunkt erhalten). Fügen Sie dann unter diesem Kommentar den Code hinzu, der zum Erkennen des Standpunkts im jeweiligen Bewertungsdokument erforderlich ist:
 
-    **C#** : Program.cs
+    **C#**: Program.cs
 
     ```csharp
     // Get sentiment
@@ -168,16 +169,16 @@ Nachdem Sie nun einen Client für die API erstellt haben, können wir diesen ver
     print("\nSentiment: {}".format(sentimentAnalysis.sentiment))
     ```
 
-1. Speichern Sie die Änderungen. Kehren Sie dann zum integrierten Terminal für den Ordner **text-analysis** zurück, und führen Sie das Programm erneut aus.
+1. Speichern Sie die Änderungen. Kehren Sie dann zum integrierten Terminal in den Ordner **text-analysis** zurück, und führen sie das Programm erneut aus.
 1. Beobachten Sie die Ausgabe, und beachten Sie, dass der Standpunkt der Bewertungen erkannt wird.
 
-## Hinzufügen von Code zum Identifizieren von Schlüsselbegriffen
+## Hinzufügen von Code zum Identifizieren von Schlüsselausdrücken
 
 Es kann hilfreich sein, Schlüsselbegriffe in einer Textsammlung zu identifizieren, um die wichtigsten Themen zu bestimmen, die behandelt werden.
 
 1. Suchen Sie in der **Main**-Funktion für Ihr Programm den Kommentar **Get key phrases** (Schlüsselbegriffe erhalten). Fügen Sie dann unter diesem Kommentar den Code hinzu, der zum Erkennen der Schlüsselbegriffe im jeweiligen Bewertungsdokument erforderlich ist:
 
-    **C#** : Program.cs
+    **C#**: Program.cs
 
     ```csharp
     // Get key phrases
@@ -203,7 +204,7 @@ Es kann hilfreich sein, Schlüsselbegriffe in einer Textsammlung zu identifizier
             print('\t{}'.format(phrase))
     ```
 
-1. Speichern Sie die Änderungen. Kehren Sie dann zum integrierten Terminal für den Ordner **text-analysis** zurück, und führen Sie das Programm erneut aus.
+1. Speichern Sie die Änderungen. Kehren Sie dann zum integrierten Terminal in den Ordner **text-analysis** zurück, und führen sie das Programm erneut aus.
 1. Sehen Sie sich die Ausgabe an, und beachten Sie, dass jedes Dokument Schlüsselbegriffe enthält, die Einblicke in die Thematik der jeweiligen Bewertung geben.
 
 ## Hinzufügen von Code zum Extrahieren von Entitäten
@@ -212,7 +213,7 @@ Häufig werden in Dokumenten oder anderen Textsammlungen Personen, Orte, Zeiträ
 
 1. Suchen Sie in der **Main**-Funktion für Ihr Programm den Kommentar **Get entities** (Entitäten erhalten). Fügen Sie dann unter diesem Kommentar den Code hinzu, der zum Identifizieren von Entitäten erforderlich ist, die in der jeweiligen Bewertung erwähnt werden:
 
-    **C#** : Program.cs
+    **C#**: Program.cs
 
     ```csharp
     // Get entities
@@ -238,16 +239,16 @@ Häufig werden in Dokumenten oder anderen Textsammlungen Personen, Orte, Zeiträ
             print('\t{} ({})'.format(entity.text, entity.category))
     ```
 
-1. Speichern Sie die Änderungen. Kehren Sie dann zum integrierten Terminal für den Ordner **text-analysis** zurück, und führen Sie das Programm erneut aus.
+1. Speichern Sie die Änderungen. Kehren Sie dann zum integrierten Terminal in den Ordner **text-analysis** zurück, und führen sie das Programm erneut aus.
 1. Beobachten Sie die Ausgabe, und beachten Sie die Entitäten, die im Text erkannt wurden.
 
-## Hinzufügen von Code zum Extrahieren verknüpfter Entitäten
+## Hinzufügen von Code zum Extrahieren von verknüpften Entitäten
 
 Zusätzlich zu kategorisierten Entitäten kann die Textanalyse-API Entitäten erkennen, für die bekannte Links zu Datenquellen wie Wikipedia verfügbar sind.
 
 1. Suchen Sie in der **Main**-Funktion für Ihr Programm den Kommentar **Get linked entities** (Verknüpfte Entitäten erhalten). Fügen Sie dann unter diesem Kommentar den Code hinzu, der zum Identifizieren von verknüpften Entitäten erforderlich ist, die in der jeweiligen Bewertung erwähnt werden:
 
-    **C#** : Program.cs
+    **C#**: Program.cs
 
     ```csharp
     // Get linked entities
@@ -273,18 +274,18 @@ Zusätzlich zu kategorisierten Entitäten kann die Textanalyse-API Entitäten er
             print('\t{} ({})'.format(linked_entity.name, linked_entity.url))
     ```
 
-1. Speichern Sie die Änderungen. Kehren Sie dann zum integrierten Terminal für den Ordner **text-analysis** zurück, und führen Sie das Programm erneut aus.
+1. Speichern Sie die Änderungen. Kehren Sie dann zum integrierten Terminal in den Ordner **text-analysis** zurück, und führen sie das Programm erneut aus.
 1. Sehen Sie sich die Ausgabe an, und beachten Sie die verknüpften Entitäten, die identifiziert werden.
 
 ## Bereinigen von Ressourcen
 
-Wenn Sie die Erkundung des Azure KI Language-Diensts abgeschlossen haben, können Sie die in dieser Übung erstellten Ressourcen löschen. Gehen Sie dazu wie folgt vor:
+Wenn Sie die Erkundung des Dienstes Azure KI Language abgeschlossen haben, können Sie die in dieser Übung erstellten Ressourcen löschen. Gehen Sie dazu wie folgt vor:
 
 1. Öffnen Sie das Azure-Portal unter `https://portal.azure.com`, und melden Sie sich mit dem Microsoft-Konto an, das Ihrem Azure-Abonnement zugeordnet ist.
 
-2. Navigieren Sie zu der Azure KI Language-Ressource, die Sie in diesem Lab erstellt haben.
+2. Navigieren Sie zur Azure KI Language-Ressource, die Sie in dieser Übung erstellt haben.
 
-3. Wählen Sie auf der Ressourcenseite die Option **Löschen** aus, und folgen Sie den Anweisungen zum Löschen der Ressource.
+3. Wählen Sie auf der Seite „Ressource“ die Option **Delete** (Löschen) aus, und folgen Sie den Anweisungen zum Löschen der Ressource.
 
 ## Weitere Informationen
 
