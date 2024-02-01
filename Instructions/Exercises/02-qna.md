@@ -33,7 +33,7 @@ Wenn Sie noch nicht über eine solche Ressource in Ihrem Abonnement verfügen, m
     > **HINWEIS** „Benutzerdefinierte Fragen und Antworten“ verwendet Azure Search zum Indizieren und Abfragen der Wissensdatenbank mit Fragen und Antworten.
 
 1. Warten Sie, bis die Bereitstellung abgeschlossen ist, und wechseln Sie dann zur bereitgestellten Ressource.
-1. Zeigen Sie die Seite **Schlüssel und Endpunkt** an. Sie benötigen die Informationen auf dieser Seite später in der Übung.
+1. Sehen Sie sich die Seite **Schlüssel und Endpunkt** an. Sie benötigen die Informationen auf dieser Seite später in der Übung.
 
 ## Erstellen eines „Fragen und Antworten“-Projekt
 
@@ -81,7 +81,7 @@ Ihre Wissensdatenbank wurde mit Frage-Antwort-Paaren aus den häufig gestellten 
     - **Frage**: `What are Microsoft credentials?`
     - **Antwort**: `Microsoft credentials enable you to validate and prove your skills with Microsoft technologies.`
 1. Wählen Sie **Fertig** aus.
-1. Erweitern Sie auf der Seite der erstellten Frage **Was ist die Microsoft-Zertifizierung?** den Eintrag **Alternative Fragen**. Fügen Sie dann die alternative Frage `How can I demonstrate my Microsoft technology skills?` hinzu.
+1. Erweitern Sie auf der Seite der Frage **Was sind Microsoft-Zertifizierungen?** den Eintrag **Alternative Fragen**. Fügen Sie dann die alternative Frage `How can I demonstrate my Microsoft technology skills?` hinzu.
 
     In einigen Fällen ist es sinnvoll, Benutzer*innen eine Nachverfolgung der Antwort zu ermöglichen, indem eine *mehrteilige* Unterhaltung erstellt wird. Mit deren Hilfe können Benutzer*innen die Frage iterativ verfeinern, um die benötigte Antwort zu erhalten.
 
@@ -119,7 +119,7 @@ Die Wissensdatenbank stellt einen Back-End-Dienst bereit, den Clientanwendungen 
 
 Sie entwickeln Ihre „Fragen und Antworten“-App mit Visual Studio Code. Die Codedateien für Ihre App wurden in einem GitHub-Repository bereitgestellt.
 
-> **Tipp**: Wenn Sie das Repository **mslearn-ai-language** bereits geklont haben, öffnen Sie es in Visual Studio Code. Führen Sie andernfalls die folgenden Schritte aus, um es in Ihrer Entwicklungsumgebung zu klonen.
+> **Tipp**: Wenn Sie das Repository **mslearn-ai-language** bereits geklont haben, öffnen Sie es in Visual Studio Code. Führen Sie andernfalls die folgenden Schritte aus, um es in Ihre Entwicklungsumgebung zu klonen.
 
 1. Starten Sie Visual Studio Code.
 2. Öffnen Sie die Palette (UMSCHALT+STRG+P), und führen Sie einen **Git: Clone**-Befehl aus, um das Repository `https://github.com/MicrosoftLearning/mslearn-ai-language` in einen lokalen Ordner zu klonen (der Ordner ist beliebig).
@@ -149,7 +149,7 @@ Es werden Anwendungen für C# und Python bereitgestellt sowie eine Beispieltextd
 
 3. Öffnen Sie im Bereich **Explorer** im Ordner **qna-app** die Konfigurationsdatei für Ihre bevorzugte Sprache.
 
-    - **C#** : appsettings.json
+    - **C#**: appsettings.json
     - **Python**: .env
     
 4. Aktualisieren Sie die Konfigurationswerte so, dass sie den **Endpunkt** und einen **Schlüssel** aus der Azure KI Language-Ressource enthalten, die Sie erstellt haben (verfügbar auf der Seite **Schlüssel und Endpunkt** für Ihre Azure KI Language-Ressource im Azure-Portal). Der Projektname und der Bereitstellungsname für Ihre bereitgestellten Wissensdatenbank sollten sich ebenfalls in dieser Datei befinden.
@@ -161,7 +161,7 @@ Jetzt können Sie den Code hinzufügen, der zum Importieren der erforderlichen S
 
 1. Beachten Sie, dass der Ordner **qna-app** eine Codedatei für die Clientanwendung enthält:
 
-    - **C#** : Program.cs
+    - **C#**: Program.cs
     - **Python**: qna-app.py
 
     Öffnen Sie die Codedatei, und suchen Sie oben unter den vorhandenen Namespaceverweisen nach dem Kommentar **Import namespaces** (Namespaces importieren). Fügen Sie dann unter diesem Kommentar den folgenden sprachspezifischen Code hinzu, um die Namespaces zu importieren, die Sie benötigen, um das Textanalyse-SDK verwenden zu können:
@@ -253,11 +253,11 @@ Jetzt können Sie den Code hinzufügen, der zum Importieren der erforderlichen S
 
 ## Bereinigen von Ressourcen
 
-Wenn Sie die Erkundung des Azure KI Language-Diensts abgeschlossen haben, können Sie die in dieser Übung erstellten Ressourcen löschen. Gehen Sie dazu wie folgt vor:
+Wenn Sie die Erkundung des Dienstes Azure KI Language abgeschlossen haben, können Sie die in dieser Übung erstellten Ressourcen löschen. Gehen Sie dazu wie folgt vor:
 
 1. Öffnen Sie das Azure-Portal unter `https://portal.azure.com`, und melden Sie sich mit dem Microsoft-Konto an, das Ihrem Azure-Abonnement zugeordnet ist.
-2. Navigieren Sie zu der Azure KI Language-Ressource, die Sie in diesem Lab erstellt haben.
-3. Wählen Sie auf der Ressourcenseite die Option **Löschen** aus, und folgen Sie den Anweisungen zum Löschen der Ressource.
+2. Navigieren Sie zur Azure KI Language-Ressource, die Sie in dieser Übung erstellt haben.
+3. Wählen Sie auf der Seite „Ressource“ die Option **Delete** (Löschen) aus, und folgen Sie den Anweisungen zum Löschen der Ressource.
 
 ## Weitere Informationen
 
