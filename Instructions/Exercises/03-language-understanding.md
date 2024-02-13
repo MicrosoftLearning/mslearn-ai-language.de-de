@@ -20,21 +20,21 @@ Diese Art von Eingabe ist ein Beispiel für eine *Äußerung* (etwas, das ein Be
 
 ## Bereitstellen einer *Azure KI Language*-Ressource
 
-Wenn Sie noch keine in Ihrem Abonnement haben, müssen Sie eine **Azure KI Language**-Dienstressource in Ihrem Azure-Abonnement bereitstellen.
+Wenn Sie noch nicht über eine solche Ressource in Ihrem Abonnement verfügen, müssen Sie eine **Azure KI Language Services**-Ressource Ihrem Azure-Abonnement bereitstellen.
 
 1. Öffnen Sie das Azure-Portal unter `https://portal.azure.com`, und melden Sie sich mit dem Microsoft-Konto an, das Ihrem Azure-Abonnement zugeordnet ist.
 1. Suchen Sie im oberen Suchfeld nach **Azure KI Services**. Wählen Sie dann in den Ergebnissen unter **Sprachdienst** die Option **Erstellen** aus.
 1. Klicken Sie auf **Continue to create your resource** (Mit Erstellung Ihrer Ressource fortfahren).
 1. Stellen Sie die Ressource mithilfe der folgenden Einstellungen bereit:
     - **Abonnement**: *Ihr Azure-Abonnement*.
-    - **Ressourcengruppe**: *Wählen Sie eine Ressourcengruppe aus, oder erstellen Sie eine*.
+    - **Ressourcengruppe**: *Wählen oder erstellen Sie eine Ressourcengruppe*.
     - **Region**: *Wählen Sie eine beliebige verfügbare Region aus*.
     - **Name**: *Geben Sie einen eindeutigen Namen ein*.
-    - **Tarif**: Wählen Sie **F0** (*Free*) oder **S** (*Standard*) aus, falls F nicht verfügbar ist.
+    - **Tarif**: Wählen Sie **F0** (*kostenlos*) oder **S** (*Standard*), wenn F nicht verfügbar ist.
     - **Hinweis zu verantwortungsvoller KI**: Zustimmen.
 1. Klicken Sie auf **Überprüfen + erstellen**.
 1. Warten Sie, bis die Bereitstellung abgeschlossen ist, und wechseln Sie dann zur bereitgestellten Ressource.
-1. Zeigen Sie die Seite **Schlüssel und Endpunkt** an. Sie benötigen die Informationen auf dieser Seite später in der Übung.
+1. Sehen Sie sich die Seite **Schlüssel und Endpunkt** an. Sie benötigen die Informationen auf dieser Seite später in der Übung.
 
 ## Erstellen eines Conversational Language Understanding-Projekts
 
@@ -111,7 +111,7 @@ Nachdem Sie nun einige Absichten hinzugefügt haben, trainieren Sie das Sprachmo
 
 1. Wählen Sie im Fensterbereich links **Trainingsaufträge** aus. Wählen Sie dann **+ Trainingsauftrag starten** aus.
 
-1. Wählen Sie im Dialogfeld **Trainingsauftrag starten** die Option zum Trainieren eines neuen Modells aus, nennen Sie es „Clock“. Wählen Sie den Modus **Standardtraining** und die Standardoptionen für das **Teilen von Daten** aus.
+1. Wählen Sie im Dialogfeld **Einen Trainingsauftrag starten**, die Option zum Trainieren eines neuen Modells aus, und nennen Sie es `Clock`. Wählen Sie den Modus **Standardtraining** und die Standardoptionen für das **Teilen von Daten** aus.
 
 1. Um mit dem Trainieren Ihres Modells zu beginnen, wählen Sie **Trainieren** aus.
 
@@ -237,7 +237,7 @@ Der Azure KI Language-Dienst stellt eine Reihe *vordefinierter* Entitäten berei
 1. Stellen Sie auf der Seite für die Entität **Date** im Abschnitt **Gelernt** sicher, dass **Nicht erforderlich** ausgewählt ist. Wählen Sie dann im Abschnitt **Vordefiniert** die Option **+ Neue vordefinierte hinzufügen** aus.
 
 1. Wählen Sie in der Liste **Vordefinierte Entität auswählen** die Option **DateTime** aus, und wählen Sie dann **Speichern** aus.
-1. Kehren Sie nach dem Hinzufügen der vordefinierten Entität zur Seite **Datenbeschriftung** zurück.
+1. Kehren Sie nach dem Hinzufügen der vordefinierten Entität zur **Datenbeschriftungsseite** zurück
 1. Wählen Sie die Absicht **GetDay** aus, und geben Sie die folgende neue Beispieläußerung ein:
 
     `what day was 01/01/1901?`
@@ -296,7 +296,7 @@ In einem echten Projekt würden Sie Absichten und Entitäten iterativ optimieren
 
 Sie entwickeln Ihre Language Understanding-App mit Visual Studio Code. Die Codedateien für Ihre App wurden in einem GitHub-Repository bereitgestellt.
 
-> **Tipp**: Wenn Sie das Repository **mslearn-ai-language** bereits geklont haben, öffnen Sie es in Visual Studio Code. Führen Sie andernfalls die folgenden Schritte aus, um es in Ihrer Entwicklungsumgebung zu klonen.
+> **Tipp**: Wenn Sie das Repository **mslearn-ai-language** bereits geklont haben, öffnen Sie es in Visual Studio Code. Führen Sie andernfalls die folgenden Schritte aus, um es in Ihre Entwicklungsumgebung zu klonen.
 
 1. Starten Sie Visual Studio Code.
 2. Öffnen Sie die Palette (UMSCHALT+STRG+P), und führen Sie einen **Git: Clone**-Befehl aus, um das Repository `https://github.com/MicrosoftLearning/mslearn-ai-language` in einen lokalen Ordner zu klonen (der Ordner ist beliebig).
@@ -326,7 +326,7 @@ Es werden Anwendungen für C# und Python bereitgestellt sowie eine Beispieltextd
 
 3. Öffnen Sie im Bereich **Explorer** im Ordner **clock-client** die Konfigurationsdatei für Ihre bevorzugte Sprache.
 
-    - **C#** : appsettings.json
+    - **C#**: appsettings.json
     - **Python**: .env
     
 4. Aktualisieren Sie die Konfigurationswerte so, dass sie den **Endpunkt** und einen **Schlüssel** aus der Azure KI Language-Ressource enthalten, die Sie erstellt haben (verfügbar auf der Seite **Schlüssel und Endpunkt** für Ihre Azure KI Language-Ressource im Azure-Portal).
@@ -609,11 +609,11 @@ Jetzt können Sie den Code hinzufügen, der zum Importieren der erforderlichen S
 
 ## Bereinigen von Ressourcen
 
-Wenn Sie die Erkundung des Azure KI Language-Diensts abgeschlossen haben, können Sie die in dieser Übung erstellten Ressourcen löschen. Gehen Sie dazu wie folgt vor:
+Wenn Sie die Erkundung des Dienstes Azure KI Language abgeschlossen haben, können Sie die in dieser Übung erstellten Ressourcen löschen. Gehen Sie dazu wie folgt vor:
 
 1. Öffnen Sie das Azure-Portal unter `https://portal.azure.com`, und melden Sie sich mit dem Microsoft-Konto an, das Ihrem Azure-Abonnement zugeordnet ist.
-2. Navigieren Sie zu der Azure KI Language-Ressource, die Sie in diesem Lab erstellt haben.
-3. Wählen Sie auf der Ressourcenseite die Option **Löschen** aus, und folgen Sie den Anweisungen zum Löschen der Ressource.
+2. Navigieren Sie zur Azure KI Language-Ressource, die Sie in dieser Übung erstellt haben.
+3. Wählen Sie auf der Seite „Ressource“ die Option **Delete** (Löschen) aus, und folgen Sie den Anweisungen zum Löschen der Ressource.
 
 ## Weitere Informationen
 
