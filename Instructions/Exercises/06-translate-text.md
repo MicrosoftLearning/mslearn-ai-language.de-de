@@ -23,13 +23,13 @@ Wenn Sie noch nicht über eine solche Ressource in Ihrem Abonnement verfügen, m
     - **Hinweis zu verantwortungsvoller KI**: Zustimmen.
 1. Klicken Sie auf **Überprüfen + erstellen**.
 1. Warten Sie, bis die Bereitstellung abgeschlossen ist, und wechseln Sie dann zur bereitgestellten Ressource.
-1. Zeigen Sie die Seite **Schlüssel und Endpunkt** an. Sie benötigen die Informationen auf dieser Seite später in der Übung.
+1. Sehen Sie sich die Seite **Schlüssel und Endpunkt** an. Sie benötigen die Informationen auf dieser Seite später in der Übung.
 
 ## Vorbereiten der Entwicklung einer App in Visual Studio Code
 
 Sie entwickeln Ihre Textübersetzungs-App mit Visual Studio Code. Die Codedateien für Ihre App wurden in einem GitHub-Repository bereitgestellt.
 
-> **Tipp**: Wenn Sie das Repository **mslearn-ai-language** bereits geklont haben, öffnen Sie es in Visual Studio Code. Führen Sie andernfalls die folgenden Schritte aus, um es in Ihrer Entwicklungsumgebung zu klonen.
+> **Tipp**: Wenn Sie das Repository **mslearn-ai-language** bereits geklont haben, öffnen Sie es in Visual Studio Code. Führen Sie andernfalls die folgenden Schritte aus, um es in Ihre Entwicklungsumgebung zu klonen.
 
 1. Starten Sie Visual Studio Code.
 2. Öffnen Sie die Palette (UMSCHALT+STRG+P), und führen Sie einen **Git: Clone**-Befehl aus, um das Repository `https://github.com/MicrosoftLearning/mslearn-ai-language` in einen lokalen Ordner zu klonen (der Ordner ist beliebig).
@@ -59,7 +59,7 @@ Anwendungen für C# und Python wurden bereitgestellt. Beide Apps verfügen über
 
 3. Öffnen Sie im Bereich **Explorer** im Ordner **translate-text** die Konfigurationsdatei für Ihre bevorzugte Sprache.
 
-    - **C#** : appsettings.json
+    - **C#**: appsettings.json
     - **Python**: .env
     
 4. Aktualisieren Sie die Konfigurationswerte so, dass sie die **Region** und einen **Schlüssel** aus der Azure KI Übersetzer-Ressource enthalten, die Sie erstellt haben (verfügbar auf der Seite **Schlüssel und Endpunkt** für Ihre Azure KI Übersetzer-Ressource im Azure-Portal).
@@ -135,7 +135,7 @@ Jetzt können Sie Azure KI Übersetzer verwenden, um Text zu übersetzen.
         }
         else
         {
-            Console.WriteLine($"({targetLanguage} is not a supported language.");
+            Console.WriteLine($"{targetLanguage} is not a supported language.");
         }
 
     }
@@ -169,7 +169,8 @@ Jetzt können Sie Azure KI Übersetzer verwenden, um Text zu übersetzen.
     while (inputText.ToLower() != "quit")
     {
         Console.WriteLine("Enter text to translate ('quit' to exit)");
-        inputText = Console.ReadLine();if (inputText.ToLower() != "quit")
+        inputText = Console.ReadLine();
+        if (inputText.ToLower() != "quit")
         {
             Response<IReadOnlyList<TranslatedTextItem>> translationResponse = await client.TranslateAsync(targetLanguage, inputText).ConfigureAwait(false);
             IReadOnlyList<TranslatedTextItem> translations = translationResponse.Value;
@@ -205,7 +206,7 @@ Ihre Anwendung kann jetzt getestet werden.
 
 1. Geben Sie im integrierten Terminal für den Ordner **Translate text** den folgenden Befehl zur Ausführung des Programms ein:
 
-    - **C#** : `dotnet run`
+    - **C#**: `dotnet run`
     - **Python**: `python translate.py`
 
     > **Tipp**: Sie können das Symbol **Fenstergröße maximieren** (**^**) in der Terminalsymbolleiste verwenden, um mehr vom Konsolentext anzuzeigen.
@@ -214,6 +215,6 @@ Ihre Anwendung kann jetzt getestet werden.
 1. Geben Sie einen Ausdruck ein, der übersetzt werden soll (z. B. `This is a test` oder `C'est un test`), und zeigen Sie die Ergebnisse an, bei denen die Ausgangssprache erkannt und der Text in die Zielsprache übersetzt wurde.
 1. Wenn Sie fertig sind, geben Sie die Zeichenfolge `quit` ein. Sie können die Anwendung erneut ausführen und eine andere Zielsprache auswählen.
 
-## Bereinigen
+## Bereinigung
 
 Wenn Sie Ihr Projekt nicht mehr benötigen, können Sie die Azure KI Übersetzer-Ressource im [Azure-Portal](https://portal.azure.com) löschen.
