@@ -17,14 +17,14 @@ Wenn Sie noch nicht über eine solche Ressource in Ihrem Abonnement verfügen, m
 1. Öffnen Sie das Azure-Portal unter `https://portal.azure.com`, und melden Sie sich mit dem Microsoft-Konto an, das Ihrem Azure-Abonnement zugeordnet ist.
 1. Suchen Sie im oberen Suchfeld nach **Azure KI Services**. Wählen Sie dann in den Ergebnissen unter **Sprachdienst** die Option **Erstellen** aus.
 1. Klicken Sie auf **Continue to create your resource** (Mit Erstellung Ihrer Ressource fortfahren).
-1. Stellen Sie die Ressource mit den folgenden Einstellungen bereit:
+1. Stellen Sie die Ressource mithilfe der folgenden Einstellungen bereit:
     - **Abonnement**: *Ihr Azure-Abonnement*.
     - **Ressourcengruppe**: *Wählen oder erstellen Sie eine Ressourcengruppe*.
     - **Region**: *Wählen Sie eine beliebige verfügbare Region aus*.
     - **Name**: *Geben Sie einen eindeutigen Namen ein*.
     - **Tarif**: Wählen Sie **F0** (*kostenlos*) oder **S** (*Standard*), wenn F nicht verfügbar ist.
     - **Hinweis zu verantwortungsvoller KI**: Zustimmen.
-1. Klicken Sie auf **Überprüfen + erstellen**.
+1. Wählen Sie **Überprüfen und erstellen** aus und dann **Erstellen**, um die Ressource bereitzustellen.
 1. Warten Sie, bis die Bereitstellung abgeschlossen ist, und wechseln Sie dann zur bereitgestellten Ressource.
 1. Sehen Sie sich die Seite **Schlüssel und Endpunkt** an. Sie benötigen die Informationen auf dieser Seite später in der Übung.
 
@@ -122,7 +122,7 @@ Es werden Anwendungen für C# und Python bereitgestellt sowie eine Beispieltextd
 
 ## Hinzufügen von Code zum Erkennen der Sprache
 
-Nun, da Sie einen Client für die API erstellt haben, können wir diesen verwenden, um die Sprache zu erkennen, in der die einzelnen Bewertungen verfasst sind.
+Nachdem Sie nun einen Client für die API erstellt haben, können wir diesen verwenden, um die Sprache zu erkennen, in der die einzelnen Bewertungen verfasst sind.
 
 1. Suchen Sie in der **Main**-Funktion für Ihr Programm den Kommentar **Get language** (Sprache erhalten). Fügen Sie dann unter diesem Kommentar den Code hinzu, der zum Erkennen der Sprache im jeweiligen Bewertungsdokument erforderlich ist:
 
