@@ -28,7 +28,7 @@ Wenn Sie noch nicht über eine solche Ressource in Ihrem Abonnement verfügen, m
     - **Name**: *Geben Sie einen eindeutigen Namen ein.*
     - **Tarif**: Wählen Sie **F0** (*Free*) oder **S** (*Standard*) aus, falls F nicht verfügbar ist.
     - **Hinweis zu verantwortungsvoller KI**: Zustimmen.
-1. Wählen Sie **Überprüfen und erstellen** aus und dann **Erstellen**, um die Ressource bereitzustellen.
+1. Klicken Sie auf **Überprüfen + erstellen**.
 1. Warten Sie, bis die Bereitstellung abgeschlossen ist, und wechseln Sie dann zur bereitgestellten Ressource.
 1. Sehen Sie sich die Seite **Schlüssel und Endpunkt** an. Sie benötigen die Informationen auf dieser Seite später in der Übung.
 
