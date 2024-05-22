@@ -95,7 +95,7 @@ Nachdem Sie das Projekt erstellt haben, müssen Sie Ihre Daten taggen, um das Mo
     1. Heben Sie den Text *Denver, CO* hervor und wählen Sie die Entität **Ort** aus.
     1. Heben Sie den Text *$90* hervor, und wählen Sie die Entität **Preis** aus.
 1. Beachten Sie im Fenster **Aktivität**, dass dieses Dokument dem Datensatz für das Training des Modells hinzugefügt wird.
-1. Gehen Sie zum nächsten Dokument (Schaltfläche **Nächstes Dokument**). Weisen Sie weiter Text zu den entsprechenden Entitäten zu. Weisen Sie den Text dem gesamten Satz von Dokumenten zu, indem Sie alles dem Trainingsdatensatz hinzufügen.
+1. Verwenden Sie die Schaltfläche **Nächstes Dokument**, um zum nächsten Dokument zu wechseln und den entsprechenden Entitäten für die gesamte Gruppe von Dokumenten Text zuzuweisen, und fügen Sie sie dem Trainingsdatensatz hinzu.
 1. Nachdem Sie das letzte Dokument (*Ad 9.txt*) beschriftet haben, speichern Sie die Beschriftungen.
 
 ## Trainieren Ihres Modells

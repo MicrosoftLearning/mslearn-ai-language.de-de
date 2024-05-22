@@ -45,8 +45,8 @@ Sie entwickeln Ihre Textanalyse-App mit Visual Studio Code. Die Codedateien für
 
 Es werden Anwendungen für C# und Python bereitgestellt sowie eine Beispieltextdatei, mit der Sie die Zusammenfassung testen können. Beide Apps verfügen über die gleiche Funktionalität. In dieser Übung stellen Sie zunächst einige wichtige Teile der Anwendung fertig, um die Verwendung Ihrer Azure KI Language-Ressource zu aktivieren.
 
-1. Wechseln Sie in Visual Studio Code im **Explorer**-Bereich zum Ordner **Labfiles/01-analyze-text**, und erweitern Sie je nach Ihrer bevorzugten Sprache den Ordner **CSharp** oder **Python** und den darin enthaltenen Ordner **text-analytics**. Jeder Ordner enthält die sprachspezifischen Dateien für eine App, in die Sie die Textanalysefunktion Azure KI Language integrieren möchten.
-2. Klicken Sie mit der rechten Maustaste auf den Ordner **text-analysis**, der Ihre Code-Dateien enthält, und öffnen Sie ein integriertes Terminal. Installieren Sie dann das Textanalyse-SDK-Paket Azure KI Language, indem Sie den entsprechenden Befehl für Ihre bevorzugte Sprache ausführen: Installieren Sie für die Python-Übung auch das `dotenv`-Paket:
+1. Navigieren Sie in Visual Studio Code im Bereich **Explorer** zum Ordner **Labfiles/01-analyze-text**, und erweitern Sie je nach Ihrer bevorzugten Sprache den Ordner **CSharp** oder **Python** und den darin enthaltenen **text-analysis**- Ordner. Jeder Ordner enthält die sprachspezifischen Dateien für eine App, in die Sie die Textanalysefunktion Azure KI Language integrieren möchten.
+2. Klicken Sie mit der rechten Maustaste auf den Ordner **text-analysis**, der Ihre Codedateien enthält, und öffnen Sie ein integriertes Terminal. Installieren Sie dann das Textanalyse-SDK-Paket Azure KI Language, indem Sie den entsprechenden Befehl für Ihre bevorzugte Sprache ausführen: Installieren Sie für die Python-Übung auch das `dotenv`-Paket:
 
     **C#:**
 
@@ -61,7 +61,7 @@ Es werden Anwendungen für C# und Python bereitgestellt sowie eine Beispieltextd
     pip install python-dotenv
     ```
 
-3. Öffnen Sie im **Explorer**-Bereich im Ordner **text-analytics** die Konfigurationsdatei für Ihre bevorzugte Sprache.
+3. Öffnen Sie im Bereich **Explorer** im Ordner **text-analysis** die Konfigurationsdatei für Ihre bevorzugte Sprache.
 
     - **C#**: appsettings.json
     - **Python**: .env
