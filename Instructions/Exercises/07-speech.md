@@ -28,7 +28,7 @@ Wenn Sie noch nicht über eine solche Ressource in Ihrem Abonnement verfügen, m
     - **Name**: *Geben Sie einen eindeutigen Namen ein.*
     - **Tarif**: Wählen Sie **F0** (*Free*) oder **S** (*Standard*) aus, falls F nicht verfügbar ist.
     - **Hinweis zu verantwortungsvoller KI**: Zustimmen.
-1. Klicken Sie auf **Überprüfen + erstellen**.
+1. Wählen Sie **Überprüfen und erstellen** aus und dann **Erstellen**, um die Ressource bereitzustellen.
 1. Warten Sie, bis die Bereitstellung abgeschlossen ist, und wechseln Sie dann zur bereitgestellten Ressource.
 1. Sehen Sie sich die Seite **Schlüssel und Endpunkt** an. Sie benötigen die Informationen auf dieser Seite später in der Übung.
 
@@ -41,6 +41,9 @@ Sie entwickeln Ihre Sprach-App mit Visual Studio Code. Die Codedateien für Ihre
 1. Starten Sie Visual Studio Code.
 1. Öffnen Sie die Palette (UMSCHALT+STRG+P), und führen Sie einen **Git: Clone**-Befehl aus, um das Repository `https://github.com/MicrosoftLearning/mslearn-ai-language` in einen lokalen Ordner zu klonen (der Ordner ist beliebig).
 1. Nachdem das Repository geklont wurde, öffnen Sie den Ordner in Visual Studio Code.
+
+    > **Hinweis:** Wenn Visual Studio Code eine Popupnachricht anzeigt, in der Sie aufgefordert werden, dem geöffneten Code zu vertrauen, klicken Sie auf die Option **Ja, ich vertraue den Autoren** im Popupfenster.
+
 1. Warten Sie, während zusätzliche Dateien zur Unterstützung der C#-Codeprojekte im Repository installiert werden.
 
     > **Hinweis**: Wenn Sie aufgefordert werden, erforderliche Ressourcen zum Erstellen und Debuggen hinzuzufügen, wählen Sie **Not now** (Jetzt nicht) aus.
