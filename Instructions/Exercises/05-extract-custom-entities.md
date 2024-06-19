@@ -15,7 +15,7 @@ Um die benutzerdefinierte Entitätsextraktion zu testen, erstellen Sie zunächst
 Wenn Sie noch keine solche Ressource in Ihrem Abonnement haben, müssen Sie eine **Azure KI Language**-Ressource bereitstellen. Darüber hinaus müssen Sie die Funktion **Benutzerdefinierte Textklassifizierung und Extraktion** aktivieren.
 
 1. Öffnen Sie das Azure-Portal in einem Browser unter `https://portal.azure.com` und melden Sie sich mit Ihrem Microsoft-Konto an.
-1. Klicken Sie auf die Schaltfläche **Ressource erstellen**, suchen Sie nach *Language*, und erstellen Sie eine **Azure KI Language-Dienstressource**. Wenn Sie nach *zusätzlichen Funktionen* gefragt werden, wählen Sie die Option **Benutzerdefinierte Textklassifizierung und -extraktion** aus. Erstellen Sie die Ressource mit den folgenden Einstellungen:
+1. Klicken Sie auf die Schaltfläche **Ressource erstellen**, suchen Sie nach *Sprache*, und erstellen Sie eine Ressource vom Typ **Sprachdienst**. Wenn Sie sich auf der Seite für *Weitere Features auswählen* befinden, wählen Sie das benutzerdefinierte Feature mit **der Extraktion der benutzerdefinierten benannten Entitätserkennung** aus. Erstellen Sie die Ressource mit den folgenden Einstellungen:
     - **Abonnement:** *Geben Sie Ihr Azure-Abonnement an.*
     - **Ressourcengruppe**: *Wählen oder erstellen Sie eine Ressourcengruppe*.
     - **Region**: *Wählen Sie eine beliebige verfügbare Region aus*.
@@ -48,7 +48,7 @@ Nachdem Sie den Azure KI Language-Dienst und das Speicherkonto erstellt haben, m
 
 ## Erstellen eines benutzerdefinierten Projekts zur Erkennung benannter Entitäten
 
-Erstellen Sie nun ein benutzerdefiniertes Projekt zur Erkennung benannter Entitäten. Dieses Projekt bietet einen Arbeitsplatz, an dem Sie Ihr Model erstellen, trainieren und bereitstellen können.
+Jetzt können Sie ein benutzerdefiniertes Benanntes Entitätserkennungsprojekt erstellen. Dieses Projekt bietet einen Arbeitsplatz, an dem Sie Ihr Model erstellen, trainieren und bereitstellen können.
 
 > **Hinweis**: Sie können Ihr Modell auch über die REST-API erstellen, trainieren und bereitstellen.
 
@@ -62,12 +62,12 @@ Erstellen Sie nun ein benutzerdefiniertes Projekt zur Erkennung benannter Entit�
 
     Sollten Sie <u>nicht</u> zur Auswahl einer Sprachressource aufgefordert, kann dies daran liegen, dass Ihr Abonnement mehrere Sprachressourcen enthält. Gehen Sie in diesem Fall folgendermaßen vor:
 
-    1. Klicken Sie auf der Leiste oben auf die Schaltfläche **Einstellungen (&#9881;)**.
+    1. Wählen Sie auf der Leiste oben auf der Seite die Schaltfläche **Einstellungen (&#9881;)** aus.
     2. Gehen Sie auf der Seite **Einstellungen** zur Registerkarte **Ressourcen**.
     3. Wählen Sie die soeben erstellte Sprachressource aus, und klicken Sie auf **Switch resource** (Ressource wechseln).
     4. Klicken Sie oben auf der Seite auf **Language Studio**, um zur Startseite von Language Studio zurückzukehren.
 
-1. Wählen Sie oben im Portal im Menü **Neu erstellen** die Option *Benutzerdefinierte benannte Entitätserkennung**.
+1. Wählen Sie oben im Portal im Menü **Neues Erstellen** die Option **Benutzerdefinierte benannte Entitätserkennung** aus.
 
 1. Erstellen Sie ein neues Projekt mit den folgenden Einstellungen:
     - **Speicher verbinden**: *Dieser Wert ist wahrscheinlich bereits ausgefüllt. Ändern Sie ihn gegebenenfalls und geben Sie Ihr Speicherkonto an.*
@@ -95,7 +95,7 @@ Nachdem Sie das Projekt erstellt haben, müssen Sie Ihre Daten taggen, um das Mo
     1. Heben Sie den Text *Denver, CO* hervor und wählen Sie die Entität **Ort** aus.
     1. Heben Sie den Text *$90* hervor, und wählen Sie die Entität **Preis** aus.
 1. Beachten Sie im Fenster **Aktivität**, dass dieses Dokument dem Datensatz für das Training des Modells hinzugefügt wird.
-1. Gehen Sie zum nächsten Dokument (Schaltfläche **Nächstes Dokument**). Weisen Sie weiter Text zu den entsprechenden Entitäten zu. Weisen Sie den Text dem gesamten Satz von Dokumenten zu, indem Sie alles dem Trainingsdatensatz hinzufügen.
+1. Verwenden Sie die Schaltfläche **Nächstes Dokument**, um zum nächsten Dokument zu wechseln und den entsprechenden Entitäten für die gesamte Gruppe von Dokumenten Text zuzuweisen, und fügen Sie sie dem Trainingsdatensatz hinzu.
 1. Nachdem Sie das letzte Dokument (*Ad 9.txt*) beschriftet haben, speichern Sie die Beschriftungen.
 
 ## Trainieren Ihres Modells
@@ -136,13 +136,16 @@ Um die benutzerdefinierten Entitätsextraktion des Azure KI Language-Dienstes zu
 1. Starten Sie Visual Studio Code.
 2. Öffnen Sie die Palette (UMSCHALT+STRG+P), und führen Sie einen **Git: Clone**-Befehl aus, um das Repository `https://github.com/MicrosoftLearning/mslearn-ai-language` in einen lokalen Ordner zu klonen (der Ordner ist beliebig).
 3. Nachdem das Repository geklont wurde, öffnen Sie den Ordner in Visual Studio Code.
+
+    > **Hinweis:** Wenn Visual Studio Code eine Popupnachricht anzeigt, in der Sie aufgefordert werden, dem geöffneten Code zu vertrauen, klicken Sie auf die Option **Ja, ich vertraue den Autoren** im Popupfenster.
+
 4. Warten Sie, während zusätzliche Dateien zur Unterstützung der C#-Codeprojekte im Repository installiert werden.
 
     > **Hinweis**: Wenn Sie aufgefordert werden, erforderliche Ressourcen zum Erstellen und Debuggen hinzuzufügen, wählen Sie **Not now** (Jetzt nicht) aus.
 
 ## Konfigurieren der Anwendung
 
-Es werden Anwendungen für C# und Python bereitgestellt sowie eine Beispieltextdatei, mit der Sie die Zusammenfassung testen können. Beide Apps verfügen über die gleiche Funktionalität. In dieser Übung stellen Sie zunächst einige wichtige Teile der Anwendung fertig, um die Verwendung Ihrer Azure KI Language-Ressource zu aktivieren.
+Anwendungen für C# und Python wurden bereitgestellt. Beide Apps verfügen über die gleiche Funktionalität. In dieser Übung stellen Sie zunächst einige wichtige Teile der Anwendung fertig, um die Verwendung Ihrer Azure KI Language-Ressource zu aktivieren.
 
 1. Wechseln Sie im Fensterbereich **Explorer** in Visual Studio Code zum Ordner **Labfiles/05-custom-entity-recognition**, und erweitern Sie je nach der bevorzugten Sprache den Ordner **CSharp** oder **Python** und den darin enthaltenen Ordner **custom-entities**. Jeder Ordner enthält die sprachspezifischen Dateien für eine App, in die Sie die Textklassifizierungsfunktion von Azure KI Language integrieren werden.
 1. Klicken Sie mit der rechten Maustaste auf den Ordner **custom-entities**, der Ihre Code-Dateien enthält und öffnen Sie ein integriertes Terminal. Installieren Sie dann das SDK-Paket für die Azure KI Language-Textanalyse. Führen Sie dafür den entsprechenden Befehl für Ihre bevorzugte Sprache aus:
@@ -164,7 +167,7 @@ Es werden Anwendungen für C# und Python bereitgestellt sowie eine Beispieltextd
     - **C#**: appsettings.json
     - **Python**: .env
     
-1. Aktualisieren Sie die Konfigurationswerte, sodass sie den **Endpunkt** und einen **Schlüssel** aus der von Ihnen erstellten Azure Language-Ressource (verfügbar auf der Seite **Schlüssel und Endpunkt** für Ihre Azure KI Language-Ressource im Azure-Portal) enthalten. Die Datei sollte bereits die Projekt- und Bereitstellungsnamen für Ihr benutzerdefiniertes Modell der Entitätsextraktion enthalten.
+1. Aktualisieren Sie die Konfigurationswerte so, dass sie den **Endpunkt** und einen **Schlüssel** aus der Azure KI Language-Ressource enthalten, die Sie erstellt haben (verfügbar auf der Seite **Schlüssel und Endpunkt** für Ihre Azure KI Language-Ressource im Azure-Portal). Die Datei sollte bereits die Projekt- und Bereitstellungsnamen für Ihr benutzerdefiniertes Entitätsextraktionsmodell enthalten.
 1. Speichern Sie die Konfigurationsdatei.
 
 ## Hinzufügen von Code zum Extrahieren von Entitäten
@@ -214,7 +217,7 @@ Jetzt ist die Vorbereitung abgeschlossen und Sie können mit dem Azure KI Langua
     ai_client = TextAnalyticsClient(endpoint=ai_endpoint, credential=credential)
     ```
 
-1. beachten Sie in der **Main**-Funktion, dass der vorhandene Code alle Dateien im Ordner **Anzeigen** liest und eine Liste erstellt, die ihre Inhalte enthält. Der C#-Codes verwendet eine Liste von **TextDocumentInput**-Objekten, um den Dateinamen (als eine ID) und die Sprache anzugeben. In Python wird eine einfache Liste der Textinhalte verwendet.
+1. Beachten Sie in der **Main**-Funktion, dass der vorhandene Code alle Dateien im Ordner **Anzeigen** liest und eine Liste erstellt, die ihre Inhalte enthält. Im Fall des C#-Codes wird eine Liste von **TextDocumentInput-Objekten** verwendet, um den Dateinamen als ID und Sprache einzuschließen. In Python wird eine einfache Liste der Textinhalte verwendet.
 1. Suchen Sie die Kommentarextraktionsentitäten****, und fügen Sie den folgenden Code hinzu:
 
     **C#**: Program.cs

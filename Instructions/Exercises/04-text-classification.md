@@ -12,7 +12,7 @@ Damit Sie die benutzerdefinierte Textklassifizierung des Azure KI Language-Diens
 
 ## Bereitstellen einer *Azure KI Language*-Ressource
 
-Wenn Sie noch nicht über eine solche Ressource in Ihrem Abonnement verfügen, müssen Sie eine **Azure KI Language**-Dienstressource bereitstellen. Darüber hinaus müssen Sie benutzerdefinierte Textklassifizierung verwenden, um das Feature **Benutzerdefinierte Textklassifizierung und Extraktion** zu aktivieren.
+Wenn Sie noch keine solche Ressource in Ihrem Abonnement haben, müssen Sie eine **Azure KI Language**-Ressource bereitstellen. Darüber hinaus müssen Sie die Funktion **Benutzerdefinierte Textklassifizierung und Extraktion** aktivieren.
 
 1. Öffnen Sie in einem Browser das Azure-Portal unter `https://portal.azure.com`, und melden Sie sich mit Ihrem Microsoft-Konto an.
 1. Wählen Sie oben im Portal das Suchfeld aus, suchen Sie nach `Azure AI services`, und erstellen Sie eine **Sprachdienst**-Ressource.
@@ -30,7 +30,7 @@ Wenn Sie noch nicht über eine solche Ressource in Ihrem Abonnement verfügen, m
 
 1. Wählen Sie **Überprüfen und erstellen** aus und dann **Erstellen**, um die Ressource bereitzustellen.
 1. Warten Sie, bis die Bereitstellung abgeschlossen ist, und wechseln Sie dann zur bereitgestellten Ressource.
-1. Zeigen Sie die Seite **Schlüssel und Endpunkt** an. Sie benötigen die Informationen auf dieser Seite später in der Übung.
+1. Sehen Sie sich die Seite **Schlüssel und Endpunkt** an. Sie benötigen die Informationen auf dieser Seite später in der Übung.
 
 ## Hochladen von Beispielartikeln
 
@@ -44,7 +44,7 @@ Nachdem Sie den Azure KI Language-Dienst und das Speicherkonto erstellt haben, m
 
 1. Wählen Sie im Menü auf der linken Seite unter **Datenspeicher** die Option **Container** aus. Klicken Sie im angezeigten Bildschirm auf **+ Container**. Geben Sie dem Container den Namen `articles`, und legen Sie die Option **Anonyme Zugriffsebene** auf **Container (Anonymer Lesezugriff für Container und Blobs)** fest.
 
-    > **HINWEIS**: Achten Sie beim Konfigurieren eines Speicherkontos für eine echte Lösung darauf, die geeignete Zugriffsebene zuzuweisen. Weitere Informationen zu den einzelnen Zugriffsebenen finden Sie in der [Azure Storage-Dokumentation](https://learn.microsoft.com/azure/storage/blobs/anonymous-read-access-configure).
+    > **HINWEIS**: Wenn Sie ein Speicherkonto für eine echte Lösung konfigurieren, achten Sie darauf, dass Sie die richtige Zugriffsstufe zuweisen. Weitere Informationen zu den einzelnen Zugriffsebenen finden Sie in der [Azure Storage-Dokumentation](https://learn.microsoft.com/azure/storage/blobs/anonymous-read-access-configure).
 
 1. Nachdem Sie den Container erstellt haben, wählen Sie ihn aus und wählen Sie dann die Schaltfläche **Hochladen** aus. Wählen Sie **Nach Dateien durchsuchen** aus, um nach den heruntergeladenen Beispielartikeln zu suchen. Wählen Sie dann die Option **Hochladen** aus.
 
@@ -149,11 +149,14 @@ Sobald Sie mit den Trainingsergebnissen Ihres Modells zufrieden sind, stellen Si
 
 Um die benutzerdefinierten Textklassifizierungsfunktionen des Azure KI Language-Diensts zu testen, entwickeln Sie eine einfache Konsolenanwendung in Visual Studio Code.
 
-> **Tipp**: Wenn Sie das Repository **mslearn-ai-language** bereits geklont haben, öffnen Sie es in Visual Studio Code. Führen Sie andernfalls die folgenden Schritte aus, um es in Ihrer Entwicklungsumgebung zu klonen.
+> **Tipp**: Wenn Sie das Repository **mslearn-ai-language** bereits geklont haben, öffnen Sie es in Visual Studio Code. Führen Sie andernfalls die folgenden Schritte aus, um es in Ihre Entwicklungsumgebung zu klonen.
 
 1. Starten Sie Visual Studio Code.
 2. Öffnen Sie die Palette (UMSCHALT+STRG+P), und führen Sie einen **Git: Clone**-Befehl aus, um das Repository `https://github.com/MicrosoftLearning/mslearn-ai-language` in einen lokalen Ordner zu klonen (der Ordner ist beliebig).
 3. Nachdem das Repository geklont wurde, öffnen Sie den Ordner in Visual Studio Code.
+
+    > **Hinweis:** Wenn Visual Studio Code eine Popupnachricht anzeigt, in der Sie aufgefordert werden, dem geöffneten Code zu vertrauen, klicken Sie auf die Option **Ja, ich vertraue den Autoren** im Popupfenster.
+
 4. Warten Sie, während zusätzliche Dateien zur Unterstützung der C#-Codeprojekte im Repository installiert werden.
 
     > **Hinweis**: Wenn Sie aufgefordert werden, erforderliche Ressourcen zum Erstellen und Debuggen hinzuzufügen, wählen Sie **Not now** (Jetzt nicht) aus.
@@ -179,7 +182,7 @@ Es werden Anwendungen für C# und Python bereitgestellt sowie eine Beispieltextd
 
 1. Öffnen Sie im Bereich **Explorer** im Ordner **classify-text** die Konfigurationsdatei für Ihre bevorzugte Sprache.
 
-    - **C#** : appsettings.json
+    - **C#**: appsettings.json
     - **Python**: .env
     
 1. Aktualisieren Sie die Konfigurationswerte so, dass sie den **Endpunkt** und einen **Schlüssel** aus der Azure KI Language-Ressource enthalten, die Sie erstellt haben (verfügbar auf der Seite **Schlüssel und Endpunkt** für Ihre Azure KI Language-Ressource im Azure-Portal). Die Datei sollte bereits die Projekt- und Bereitstellungsnamen für Ihr Textklassifizierungsmodell enthalten.
@@ -299,16 +302,16 @@ Jetzt können Sie den Azure KI Language-Dienst verwenden, um Dokumente zu klassi
 
 Ihre Anwendung kann jetzt getestet werden.
 
-1. Geben Sie im integrierten Terminal für den Ordner **classify-text** den folgenden Befehl zur Ausführung des Programms ein:
+1. Geben Sie das integrierte Terminal für den Ordner **classify-text** zurück und dann den folgenden Befehl zur Ausführung des Programms ein:
 
     - **C#** : `dotnet run`
     - **Python**: `python classify-text.py`
 
-    > **Tipp**: Sie können das Symbol **Fenstergröße maximieren** (**^**) in der Terminalsymbolleiste verwenden, um mehr vom Konsolentext anzuzeigen.
+    > **Tipp**: Sie können das Symbol " **Panelgröße** maximieren" (**^**) in der Terminalsymbolleiste verwenden, um mehr über den Konsolentext anzuzeigen.
 
 1. Beobachten Sie die Ausgabe. Die Anwendung sollte eine Klassifizierungs- und Konfidenzbewertung für jede Textdatei auflisten.
 
 
-## Bereinigen
+## Bereinigung
 
 Wenn Sie das Projekt nicht mehr benötigen, können Sie es von Ihrer **Projektseite** in Language Studio löschen. Sie können auch den Azure KI Language-Dienst und das zugeordnete Speicherkonto im [Azure-Portal](https://portal.azure.com) entfernen.
