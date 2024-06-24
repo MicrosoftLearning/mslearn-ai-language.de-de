@@ -119,7 +119,7 @@ Nachdem Sie nun einige Absichten hinzugefügt haben, trainieren Sie das Sprachmo
 
 1. Wählen Sie die Seite **Modellleistung** und dann das Modell **Clock** aus. Sehen Sie sich die Metriken für die Gesamtauswertung und die Auswertung pro Absicht (*Genauigkeit*, *Abruf* und *F1-Score*) sowie die *Konfusionsmatrix* an, die durch die beim Training durchgeführte Auswertung generiert wurde. (Beachten Sie, dass aufgrund der geringen Anzahl von Beispieläußerungen möglicherweise nicht alle Absichten in die Ergebnisse einbezogen werden können).
 
-    > **HINWEIS:** Weitere Informationen zu den Auswertungsmetriken finden Sie in der [Dokumentation](/azure/ai-services/language-service/conversational-language-understanding/concepts/evaluation-metrics).
+    > **HINWEIS:** Weitere Informationen zu den Auswertungsmetriken finden Sie in der [Dokumentation](https://learn.microsoft.com/azure/ai-services/language-service/conversational-language-understanding/concepts/evaluation-metrics).
 
 1. Wählen Sie auf der Seite **Bereitstellung eines Modells** die Option **Bereitstellung hinzufügen** aus.
 
