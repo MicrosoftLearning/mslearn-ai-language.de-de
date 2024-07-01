@@ -51,7 +51,7 @@ Nachdem Sie nun eine Dokumenterstellungsressource erstellt haben, können Sie si
 
     Sollten Sie <u>nicht</u> zur Auswahl einer Sprachressource aufgefordert, kann dies daran liegen, dass Ihr Abonnement mehrere Sprachressourcen enthält. Gehen Sie in diesem Fall folgendermaßen vor:
 
-    1. Klicken Sie auf der Leiste oben auf die Schaltfläche **Einstellungen (&#9881;)**.
+    1. Wählen Sie auf der Leiste oben auf der Seite die Schaltfläche **Einstellungen (&#9881;)** aus.
     2. Gehen Sie auf der Seite **Einstellungen** zur Registerkarte **Ressourcen**.
     3. Wählen Sie die soeben erstellte Sprachressource aus, und klicken Sie auf **Switch resource** (Ressource wechseln).
     4. Klicken Sie oben auf der Seite auf **Language Studio**, um zur Homepage von Language Studio zurückzukehren.
