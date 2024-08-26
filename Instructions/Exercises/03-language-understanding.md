@@ -91,6 +91,8 @@ Um dem Modell zu helfen vorherzusagen, welche Absicht Benutzer*innen anfordern, 
     - `what time is it?`
     - `tell me the time`
 
+    > **HINWEIS**: Um eine neue Äußerung hinzuzufügen, schreiben Sie die Äußerung in das Textfeld neben der Absicht und drücken Sie dann die EINGABETASTE. 
+
 1. Wählen Sie die Absicht **GetDay** aus, und fügen Sie die folgenden Äußerungen als Beispieleingaben für diese Absicht hinzu:
     - `what day is it?`
     - `what's the day?`
@@ -193,6 +195,8 @@ In einigen Fällen können gültige Werte für eine Entität auf eine Liste mit 
     | Listenschlüssel | Synonyme|
     |-------------------|---------|
     | `Sunday` | `Sun` |
+
+    > **HINWEIS** Um die Felder der neuen Liste einzugeben, geben Sie den Wert `Sunday` in das Textfeld ein, klicken Sie dann auf das Feld, in dem „Wert eingeben und Enter drücken ...“ angezeigt wird, geben Sie die Synonyme ein und drücken Sie die EINGABETASTE.
 
 1. Wiederholen Sie den vorherigen Schritt, um die folgenden Listenkomponenten hinzuzufügen:
 
