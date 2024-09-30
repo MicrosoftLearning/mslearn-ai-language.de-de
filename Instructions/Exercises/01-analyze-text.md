@@ -15,7 +15,8 @@ Angenommen, ein Reiseunternehmen möchte Hotelbewertungen verarbeiten, die auf d
 Wenn Sie noch nicht über eine solche Ressource in Ihrem Abonnement verfügen, müssen Sie eine **Azure KI Language Services**-Ressource Ihrem Azure-Abonnement bereitstellen.
 
 1. Öffnen Sie das Azure-Portal unter `https://portal.azure.com`, und melden Sie sich mit dem Microsoft-Konto an, das Ihrem Azure-Abonnement zugeordnet ist.
-1. Suchen Sie im oberen Suchfeld nach **Azure KI Services**. Wählen Sie dann in den Ergebnissen unter **Sprachdienst** die Option **Erstellen** aus.
+1. Wählen Sie **Ressource erstellen**.
+1. Suchen Sie im Suchfeld nach dem **Sprachdienst**. Wählen Sie dann in den Ergebnissen unter **Sprachdienst** die Option **Erstellen** aus.
 1. Klicken Sie auf **Continue to create your resource** (Mit Erstellung Ihrer Ressource fortfahren).
 1. Stellen Sie die Ressource mithilfe der folgenden Einstellungen bereit:
     - **Abonnement**: *Ihr Azure-Abonnement*.
@@ -26,7 +27,7 @@ Wenn Sie noch nicht über eine solche Ressource in Ihrem Abonnement verfügen, m
     - **Hinweis zu verantwortungsvoller KI**: Zustimmen.
 1. Wählen Sie **Überprüfen und erstellen** aus und dann **Erstellen**, um die Ressource bereitzustellen.
 1. Warten Sie, bis die Bereitstellung abgeschlossen ist, und wechseln Sie dann zur bereitgestellten Ressource.
-1. Sehen Sie sich die Seite **Schlüssel und Endpunkt** an. Sie benötigen die Informationen auf dieser Seite später in der Übung.
+1. Sie können die Seite **Schlüssel und Endpunkte** im Abschnitt **Ressourcenverwaltungt** anzeigen. Sie benötigen die Informationen auf dieser Seite später in der Übung.
 
 ## Vorbereitung auf das Entwickeln einer App in Visual Studio Code
 
