@@ -82,6 +82,8 @@ Nachdem die Konfiguration nun abgeschlossen ist, erstellen Sie ein Projekt zur b
 1. Wählen Sie die Option **Nein, ich muss meine Dateien als Teil dieses Projekts bezeichnen** aus. Wählen Sie **Weiter**aus.
 1. Wählen Sie **Projekt erstellen** aus.
 
+> **Tipp**: Wenn Sie eine Fehlermeldung erhalten, dass Sie nicht berechtigt sind, diesen Vorgang durchzuführen, müssen Sie eine Rollenzuweisung hinzufügen. Um dies zu beheben, fügen wir zu Benutzenden, die das Lab ausführen, die Rolle „Mitwirkender an Speicherblobdaten“ auf dem Speicherkonto hinzu. Weitere Details finden Sie [auf der Dokumentationsseite](https://learn.microsoft.com/azure/ai-services/language-service/custom-named-entity-recognition/how-to/create-project?tabs=portal%2Clanguage-studio#enable-identity-management-for-your-resource)
+
 ## Beschriften Ihrer Daten
 
 Nachdem Sie das Projekt erstellt haben, müssen Sie Ihre Daten taggen (markieren), um das Modell für die Klassifizierung von Text zu trainieren.
