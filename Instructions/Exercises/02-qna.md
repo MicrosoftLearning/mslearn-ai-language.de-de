@@ -15,9 +15,9 @@ Eines der häufigsten Unterhaltungsszenarien ist die Bereitstellung von Unterst�
 Wenn Sie noch nicht über eine solche Ressource in Ihrem Abonnement verfügen, müssen Sie eine **Azure KI Language**-Dienstressource bereitstellen. Um eine Wissensdatenbank für die Beantwortung von Fragen zu erstellen und zu hosten, müssen Sie die Funktion **Fragen und Antworten** aktivieren.
 
 1. Öffnen Sie das Azure-Portal unter `https://portal.azure.com`, und melden Sie sich mit dem Microsoft-Konto an, das Ihrem Azure-Abonnement zugeordnet ist.
-1. Geben Sie im Suchfeld oben **Azure KI Services** ein, und drücken Sie dann die **EINGABETASTE**.
-1. Wählen Sie in den Ergebnissen unter der **Sprachdienst**-Ressource die Option **Erstellen** aus.
-1. **Wählen Sie** den Block **Benutzerdefinierte Fragen und Antworten** aus. Wählen Sie dann **Mit dem Erstellen Ihrer Ressource fortfahren** aus. Sie müssen die folgenden Einstellungen eingeben:
+1. Wählen Sie **Ressource erstellen**.
+1. Suchen Sie im Suchfeld nach dem **Sprachdienst**. Wählen Sie dann in den Ergebnissen unter **Sprachdienst** die Option **Erstellen** aus.
+1. Wählen Sie den Block **Benutzerdefinierte Fragen und Antworten** aus. Wählen Sie dann **Mit dem Erstellen Ihrer Ressource fortfahren** aus. Sie müssen die folgenden Einstellungen eingeben:
 
     - **Abonnement:** *Geben Sie Ihr Azure-Abonnement an.*
     - **Ressourcengruppe**: *Wählen Sie eine Ressourcengruppe aus, oder erstellen Sie eine*.
@@ -54,7 +54,7 @@ Wenn Sie eine Wissensdatenbank für Fragen und Antworten in Ihrer Azure KI Langu
     4. Klicken Sie oben auf der Seite auf **Language Studio**, um zur Startseite von Language Studio zurückzukehren.
 
 1. Klicken Sie oben im Portal im Menü **Neu erstellen** auf **Benutzerdefinierte Fragebeantwortung**.
-1. Wählen Sie im Assistenten **Projekt erstellen** auf der Seite **Spracheinstellung wählen** die Option **Sprache für alle Projekte in dieser Ressource festlegen** aus, und wählen Sie **Englisch** als Sprache aus. Wählen Sie **Weiter**aus.
+1. Wählen Sie im Assistenten ***Projekt erstellen** auf der Seite **Spracheinstellung wählen** die Option **Sprache für alle Projekte festlegen** aus und wählen Sie **Englisch** als Sprache aus. Wählen Sie **Weiter**aus.
 1. Geben Sie auf der Seite **Grundlegende Informationen eingeben** die folgenden Informationen ein:
     - **Name** `LearnFAQ`
     - **Beschreibung:** `FAQ for Microsoft Learn`
@@ -64,7 +64,7 @@ Wenn Sie eine Wissensdatenbank für Fragen und Antworten in Ihrer Azure KI Langu
 
 ## Hinzufügen von Quellen zur Wissensdatenbank
 
-Sie können eine Wissensdatenbank von Grund auf neu erstellen, aber es ist üblich, zuerst Fragen und Antworten von einer vorhandenen FAQ-Seite oder aus einem vorhandenen Dokument zu importieren. In diesem Fall importieren Sie Daten von einer vorhandenen FAQ-Webseite für Microsoft Learn, und Sie importieren auch einige vordefinierte Fragen und Antworten für Smalltalk, um gängige Konversationsszenarios zu unterstützen.
+Sie können eine Wissensdatenbank von Grund auf neu erstellen, aber es ist üblich, zuerst Fragen und Antworten von einer vorhandenen FAQ-Seite oder aus einem vorhandenen Dokument zu importieren. In diesem Fall importieren Sie Daten von einer vorhandenen FAQ-Webseite für Microsoft Learn, und Sie importieren auch einige vordefinierte Fragen und Antworten für „Smalltalk“, um gängige Konversationsszenarios zu unterstützen.
 
 1. Wählen Sie auf der Seite **Manage sources** (Quellen verwalten) für Ihr „Fragen und Antworten“-Projekt in der Liste **&#9547; Add source** (Quelle hinzufügen) die Option **URLs** aus. Wählen Sie dann im Dialogfeld **URLs hinzufügen** die Option **+ URL hinzufügen** aus, und geben Sie den folgenden Namen und die URL ein, bevor Sie **Alle hinzufügen** auswählen, um sie der Wissensdatenbank hinzuzufügen:
     - **Name**: `Learn FAQ Page`
@@ -108,7 +108,7 @@ Nachdem Sie nun über eine Wissensdatenbank verfügen, können Sie sie in Langua
 
 Die Wissensdatenbank stellt einen Back-End-Dienst bereit, den Clientanwendungen zum Beantworten von Fragen nutzen können. Jetzt können Sie Ihre Wissensdatenbank veröffentlichen und über einen Client auf deren REST-Schnittstelle zugreifen.
 
-1. Navigieren Sie im Projekt **LearnFAQ** in Language Studio zur Seite **Deploy knowledge base** (Wissensdatenbank bereitstellen).
+1. Navigieren Sie im Projekt **LearnFAQ** in Language Studio zur Seite **Wissensdatenbank bereitstellen**.
 1. Wählen Sie oben auf der Seite **Bereitstellen** aus. Wählen Sie dann **Bereitstellen** aus, um zu bestätigen, dass Sie die Wissensdatenbank bereitstellen möchten.
 1. Wenn die Bereitstellung abgeschlossen ist, wählen Sie **Vorhersage-URL abrufen** aus, um den REST-Endpunkt für Ihre Wissensdatenbank anzuzeigen. Beachten Sie, dass die Beispielanforderung Parameter für Folgendes enthält:
     - **projectName**: Der Name Ihres Projekts (sollte *LearnFAQ* sein)

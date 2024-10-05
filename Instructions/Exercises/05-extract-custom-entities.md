@@ -80,6 +80,8 @@ Jetzt können Sie ein benutzerdefiniertes Benanntes Entitätserkennungsprojekt e
         - **Blob-Speichercontainer**: klassifiziert
         - **Sind Ihre Dateien mit Klassen getaggt?**: Nein, ich muss meine Dateien als Teil dieses Projekts taggen.
 
+> **Tipp**: Wenn Sie eine Fehlermeldung erhalten, dass Sie nicht berechtigt sind, diesen Vorgang durchzuführen, müssen Sie eine Rollenzuweisung hinzufügen. Um dies zu beheben, fügen wir zu Benutzenden, die das Lab ausführen, die Rolle „Mitwirkender an Speicherblobdaten“ auf dem Speicherkonto hinzu. Weitere Details finden Sie [auf der Dokumentationsseite](https://learn.microsoft.com/azure/ai-services/language-service/custom-named-entity-recognition/how-to/create-project?tabs=portal%2Clanguage-studio#enable-identity-management-for-your-resource)
+
 ## Beschriften Ihrer Daten
 
 Nachdem Sie das Projekt erstellt haben, müssen Sie Ihre Daten taggen, um das Modell für die Erkennung von Entitäten zu trainieren.
