@@ -28,7 +28,19 @@ Wenn Sie noch nicht über eine solche Ressource in Ihrem Abonnement verfügen, m
 1. Stellen Sie die Ressource mithilfe der folgenden Einstellungen bereit:
     - **Abonnement**: *Ihr Azure-Abonnement*.
     - **Ressourcengruppe**: *Wählen oder erstellen Sie eine Ressourcengruppe*.
-    - **Region**: *Wählen Sie eine beliebige verfügbare Region aus*.
+    - **Region**: *Wählen Sie aus einer der folgenden Regionen*\*
+        - Australien (Osten)
+        - Indien, Mitte
+        - China, Osten 2
+        - East US
+        - USA (Ost) 2
+        - Nordeuropa
+        - USA Süd Mitte
+        - Schweiz, Norden
+        - UK, Süden
+        - Europa, Westen
+        - USA, Westen 2
+        - USA, Westen 3
     - **Name**: *Geben Sie einen eindeutigen Namen ein*.
     - **Tarif**: Wählen Sie **F0** (*kostenlos*) oder **S** (*Standard*), wenn F nicht verfügbar ist.
     - **Hinweis zu verantwortungsvoller KI**: Zustimmen.
