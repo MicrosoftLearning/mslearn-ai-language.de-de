@@ -18,7 +18,18 @@ Wenn Sie noch keine solche Ressource in Ihrem Abonnement haben, müssen Sie eine
 1. Klicken Sie auf die Schaltfläche **Ressource erstellen**, suchen Sie nach *Sprache*, und erstellen Sie eine Ressource vom Typ **Sprachdienst**. Wenn Sie sich auf der Seite für *Weitere Features auswählen* befinden, wählen Sie das benutzerdefinierte Feature mit **der Extraktion der benutzerdefinierten benannten Entitätserkennung** aus. Erstellen Sie die Ressource mit den folgenden Einstellungen:
     - **Abonnement:** *Geben Sie Ihr Azure-Abonnement an.*
     - **Ressourcengruppe**: *Wählen oder erstellen Sie eine Ressourcengruppe*.
-    - **Region**: *Wählen Sie eine beliebige verfügbare Region aus*.
+    - **Region**: *Wählen Sie aus einer der folgenden Regionen*\*
+        - Australien (Osten)
+        - Indien, Mitte
+        - East US
+        - USA (Ost) 2
+        - Nordeuropa
+        - USA Süd Mitte
+        - Schweiz, Norden
+        - UK, Süden
+        - Europa, Westen
+        - USA, Westen 2
+        - USA, Westen 3
     - **Name**: *Geben Sie einen eindeutigen Namen ein.*
     - **Tarif**: Wählen Sie **F0** (*kostenlos*) oder **S** (*Standard*), wenn F nicht verfügbar ist.
     - **Speicherkonto**: Neues Speicherkonto:
