@@ -43,6 +43,16 @@ Wenn Sie noch keine solche Ressource in Ihrem Abonnement haben, müssen Sie eine
 1. Warten Sie, bis die Bereitstellung abgeschlossen ist, und wechseln Sie dann zur bereitgestellten Ressource.
 1. Sehen Sie sich die Seite **Schlüssel und Endpunkt** an. Sie benötigen die Informationen auf dieser Seite später in der Übung.
 
+## Rollen für Ihren Benutzer
+> **Hinweis**: Wenn Sie diesen Schritt auslassen, erhalten Sie eine 403-Fehlermeldung, wenn Sie versuchen, eine Verbindung zu Ihrem benutzerdefinierten Projekt herzustellen. Es ist wichtig, dass Ihr aktueller Benutzender über diese Rolle verfügt, um auf Blobdaten des Speicherkontos zuzugreifen, auch wenn Sie Besitzende des Speicherkontos sind.**
+
+1. Navigieren Sie im Azure-Portal zu Ihrem Speicherkonto.
+2. Wählen Sie im linken Navigationsmenü **Access Control (IAM)** aus.
+3. Wählen Sie **Hinzufügen**, um Rollenzuordnungen hinzuzufügen, und wählen Sie die Rolle **Mitwirkende für die Speicherung von Blobdaten** für das Speicherkonto.
+4. Wählen Sie unter **Zugriff zuweisen zu** die Option **Benutzer, Gruppe oder Dienstprinzipal** aus.
+5. Wählen Sie **Mitglieder auswählen** aus.
+6. Wählen Sie Ihren Benutzer aus. Sie können im Feld **Auswählen** nach Benutzernamen suchen.
+
 ## Hochladen von Beispielartikeln
 
 Nachdem Sie den Azure KI Language-Dienst und das Speicherkonto erstellt haben, müssen Sie Beispielartikel hochladen, mit denen das Modell später trainiert werden soll.
