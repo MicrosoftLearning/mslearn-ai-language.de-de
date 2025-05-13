@@ -6,8 +6,20 @@ layout: home
 
 # Azure KI Language-Übungen
 
-Die folgenden Übungen sind eine Ergänzung für die Module von Microsoft Learn für das [Entwickeln von Lösungen in natürlicher Sprache](https://learn.microsoft.com/training/paths/develop-language-solutions-azure-ai/).
+In den folgenden Übungen können Sie praktische Erfahrungen sammeln und typische Aufgaben kennenlernen, die Fachkräfte in der Entwicklung beim Erstellen von Lösungen für natürliche Sprache in Azure ausführen. 
 
+> **Hinweis**: Um die Übung zu abzuschließen, benötigen Sie ein Azure-Abonnement. Wenn Sie noch kein Konto haben, können Sie sich für ein [Azure-Konto](https://azure.microsoft.com/free) anmelden. Für neue Benutzende gibt es dort eine kostenlose Testoption, die Guthaben für die ersten 30 Tage beinhaltet.
 
-{% assign labs = site.pages | where_exp:"page", "page.url contains '/Instructions/Exercises'" %} {% for activity in labs  %} {% unless activity.url contains 'ai-foundry' %}
-- [{{ activity.lab.title }}]({{ site.github.url }}{{ activity.url }}) {% endunless %} {% endfor %}
+## Übungen
+
+{% assign labs = site.pages | where_exp:"page", "page.url contains '/Instructions/Exercises'" %} {% for activity in labs  %}
+<hr>
+### [{{ activity.lab.title }}]({{ site.github.url }}{{ activity.url }})
+
+{{activity.lab.description}}
+
+{% endfor %}
+
+<hr>
+
+> **Hinweis**: Diese Übungen können zwar eigenständig absolviert werden, sie sind jedoch als Ergänzung zu den Modulen auf [Microsoft Learn](https://learn.microsoft.com/training/paths/develop-language-solutions-azure-ai/) gedacht, in denen Sie tiefer in einige der zugrunde liegenden Konzepte eintauchen können, auf denen diese Übungen basieren. 
