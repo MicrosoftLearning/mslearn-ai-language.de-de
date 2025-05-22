@@ -6,7 +6,7 @@ lab:
 
 # Entwicklung einer audiofähigen Chat-App
 
-In dieser Übung verwenden Sie das generative KI-Modell *Phi-4-multimodal-instruct*, um Antworten auf Aufforderungen zu erzeugen, die Audiodateien enthalten. Sie entwickeln eine App, die KI-Unterstützung bei frischen Produkten in einem Lebensmittelgeschäft bietet, indem Sie Azure AI Foundry und den Azure KI-Modellinferenz-Dienst verwenden.
+In dieser Übung verwenden Sie das generative KI-Modell *Phi-4-multimodal-instruct*, um Antworten auf Aufforderungen zu erzeugen, die Audiodateien enthalten. Sie entwickeln eine App, die KI-Unterstützung für ein Herstellerunternehmen bietet, indem Sie Azure AI Foundry und den Azure KI-Modellinferenz-Dienst verwenden, um Sprachnachrichten der Kundschaft zusammenzufassen.
 
 Diese Übung dauert ca. **30** Minuten.
 
@@ -95,13 +95,13 @@ Nachdem Sie das Modell bereitgestellt haben, können Sie die Bereitstellung in e
     **Python**
 
     ```
-    cd mslearn-ai-audio/Labfiles/09-audio-chat/python
+    cd mslearn-ai-audio/Labfiles/09-audio-chat/Python
     ```
 
     **C#**
 
     ```
-    cd mslearn-ai-audio/Labfiles/09-audio-chat/c-sharp
+    cd mslearn-ai-audio/Labfiles/09-audio-chat/C-sharp
     ```
 
 1. Geben Sie im Befehlszeilenbereich von Cloud Shell den folgenden Befehl ein, um die Bibliotheken zu installieren, die Sie verwenden möchten:
@@ -111,7 +111,7 @@ Nachdem Sie das Modell bereitgestellt haben, können Sie die Bereitstellung in e
     ```
     python -m venv labenv
     ./labenv/bin/Activate.ps1
-    pip install python-dotenv azure-identity azure-ai-projects azure-ai-inference
+    pip install -r requirements.txt azure-identity azure-ai-projects azure-ai-inference
     ```
 
     **C#**
@@ -173,9 +173,6 @@ Nachdem Sie das Modell bereitgestellt haben, können Sie die Bereitstellung in e
         SystemMessage,
         UserMessage,
         TextContentItem,
-        AudioContentItem,
-        InputAudio,
-        AudioContentFormat,
     )
     ```
 
@@ -230,13 +227,13 @@ Nachdem Sie das Modell bereitgestellt haben, können Sie die Bereitstellung in e
 
 1. Fügen Sie im Code-Editor für die Datei **audio-chat.py** im Abschnitt loop unter dem Kommentar **Eine Antwort auf eine Audioeingabe erhalten** den folgenden Code ein, um eine Eingabeaufforderung mit folgendem Ton zu übermitteln:
 
-    <video controls src="../media/manzanas.mp4" title="Eine Anforderung für Äpfel" width="150"></video>
+    <video controls src="../media/avocados.mp4" title="Eine Anforderung für Avocados" width="150"></video>
 
     **Python**
 
     ```python
     # Get a response to audio input
-    file_path = "https://github.com/microsoftlearning/mslearn-ai-language/raw/refs/heads/main/labfiles/09-audio-chat/data/manzanas.mp3"
+    file_path = "https://github.com/MicrosoftLearning/mslearn-ai-language/raw/refs/heads/main/Labfiles/09-audio-chat/data/avocados.mp3"
     response = chat_client.complete(
         messages=[
             SystemMessage(system_message),
@@ -258,7 +255,7 @@ Nachdem Sie das Modell bereitgestellt haben, können Sie die Bereitstellung in e
 
     ```csharp
     // Get a response to audio input
-    string audioUrl = "https://github.com/microsoftlearning/mslearn-ai-language/raw/refs/heads/main/labfiles/09-audio-chat/data/manzanas.mp3";
+    string audioUrl = "https://github.com/MicrosoftLearning/mslearn-ai-language/raw/refs/heads/main/Labfiles/09-audio-chat/data/avocados.mp3";
     var requestOptions = new ChatCompletionsOptions()
     {
         Messages =
@@ -290,21 +287,25 @@ Nachdem Sie das Modell bereitgestellt haben, können Sie die Bereitstellung in e
     dotnet run
     ```
 
-1. Wenn Sie dazu aufgefordert werden, geben Sie den folgenden Prompt ein: `What is this customer saying in English?`
+1. Wenn Sie dazu aufgefordert werden, geben Sie den folgenden Prompt ein: 
+
+    ```
+    Can you summarize this customer's voice message?
+    ```
 
 1. Überprüfen Sie die Antwort.
 
-### Verwenden einer anderen Eingabeaufforderung
+### Verwenden einer anderen Audiodatei
 
 1. Suchen Sie im Code-Editor für Ihren App-Code den Code, den Sie zuvor unter dem Kommentar **Eine Antwort auf eine Audioeingabe erhalten** hinzugefügt haben. Ändern Sie dann den Code wie folgt, um eine andere Audiodatei auszuwählen:
 
-    <video controls src="../media/caomei.mp4" title="Eine Anforderung für Erdbeeren" width="150"></video>
+    <video controls src="../media/fresas.mp4" title="Eine Anforderung für Erdbeeren" width="150"></video>
 
     **Python**
 
     ```python
     # Get a response to audio input
-    file_path = "https://github.com/microsoftlearning/mslearn-ai-language/raw/refs/heads/main/labfiles/09-audio-chat/data/caomei.mp3"
+    file_path = "https://github.com/MicrosoftLearning/mslearn-ai-language/raw/refs/heads/main/Labfiles/09-audio-chat/data/fresas.mp3"
     response = chat_client.complete(
         messages=[
             SystemMessage(system_message),
@@ -326,7 +327,7 @@ Nachdem Sie das Modell bereitgestellt haben, können Sie die Bereitstellung in e
 
     ```csharp
     // Get a response to audio input
-    string audioUrl = "https://github.com/microsoftlearning/mslearn-ai-language/raw/refs/heads/main/labfiles/09-audio-chat/data/caomei.mp3";
+    string audioUrl = "https://github.com/MicrosoftLearning/mslearn-ai-language/raw/refs/heads/main/Labfiles/09-audio-chat/data/fresas.mp3";
     var requestOptions = new ChatCompletionsOptions()
     {
         Messages =
@@ -358,10 +359,10 @@ Nachdem Sie das Modell bereitgestellt haben, können Sie die Bereitstellung in e
     dotnet run
     ```
 
-1. Geben Sie den folgenden Prompt ein, wenn Sie dazu aufgefordert werden:
-
+1. Geben Sie den folgenden Prompt ein, wenn Sie dazu aufgefordert werden: 
+    
     ```
-    A customer left this voice message, can you summarize it?
+    Can you summarize this customer's voice message? Is it time-sensitive?
     ```
 
 1. Überprüfen Sie die Antwort. Geben Sie dann `quit` zum Beenden des Programms ein.
