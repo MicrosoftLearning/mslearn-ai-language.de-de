@@ -243,9 +243,17 @@ Mit der Speech Synthesis Markup Language (SSML) können Sie die Art und Weise, w
     
     <video controls src="https://github.com/MicrosoftLearning/mslearn-ai-language/raw/refs/heads/main/Instructions/media/Output2.mp4" title="Es ist 5:30 Uhr. Zeit, dieses Lab zu beenden." width="150"></video>
 
-## (OPTIONAL) Was geschieht, wenn Sie über ein Mikrofon und einen Lautsprecher verfügen?
+## Bereinigen
 
-In dieser Übung haben Sie Audiodateien für die Spracheingabe und -ausgabe verwendet. Sehen wir uns an, wie der Code geändert werden kann, um Audiohardware zu verwenden.
+Wenn Sie mit der Erkundung von Azure KI Speech fertig sind, sollten Sie die in dieser Übung erstellten Ressourcen löschen, um unnötige Azure-Kosten zu vermeiden.
+
+1. Schließen Sie den Azure Cloud Shell-Bereich
+1. Navigieren Sie im Azure-Portal zu der Azure KI Speech-Ressource, die Sie in diesem Lab erstellt haben.
+1. Wählen Sie auf der Ressourcenseite **Löschen** aus, und folgen Sie den Anweisungen zum Löschen der Ressource.
+
+## Was geschieht, wenn Sie über ein Mikrofon und einen Lautsprecher verfügen?
+
+In dieser Übung unterstützt die verwendete Azure Cloud Shell-Umgebung keine Audiohardware, sodass Sie Audiodateien für die Spracheingabe und -ausgabe verwendet haben. Sehen wir uns an, wie der Code geändert werden kann, um Audiohardware zu verwenden, wenn sie verfügbar ist.
 
 ### Spracherkennung unter Verwendung des Mikrofons
 
@@ -292,14 +300,6 @@ if speak.reason != speech_sdk.ResultReason.SynthesizingAudioCompleted:
 ```
 
 > **Hinweis**: Der Standardlautsprecher des Systems ist die Standardaudioausgabe, sodass Sie auch einfach die AudioConfig ganz weglassen können!
-
-## Bereinigen
-
-Wenn Sie mit der Erkundung von Azure KI Speech fertig sind, sollten Sie die in dieser Übung erstellten Ressourcen löschen, um unnötige Azure-Kosten zu vermeiden.
-
-1. Schließen Sie den Azure Cloud Shell-Bereich
-1. Navigieren Sie im Azure-Portal zu der Azure KI Speech-Ressource, die Sie in diesem Lab erstellt haben.
-1. Wählen Sie auf der Ressourcenseite **Löschen** aus, und folgen Sie den Anweisungen zum Löschen der Ressource.
 
 ## Weitere Informationen
 
