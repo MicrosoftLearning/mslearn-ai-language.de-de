@@ -227,7 +227,7 @@ Wenn Sie mit der Erkundung des Azure KI Speech-Diensts fertig sind, können Sie 
 
 ## Was geschieht, wenn Sie über ein Mikrofon und einen Lautsprecher verfügen?
 
-In dieser Übung haben Sie Audiodateien für die Spracheingabe und -ausgabe verwendet. Sehen wir uns an, wie der Code geändert werden kann, um Audiohardware zu verwenden.
+In dieser Übung unterstützt die verwendete Azure Cloud Shell-Umgebung keine Audiohardware, sodass Sie Audiodateien für die Spracheingabe und -ausgabe verwendet haben. Sehen wir uns an, wie der Code geändert werden kann, um Audiohardware zu verwenden, wenn sie verfügbar ist.
 
 ### Verwenden der Sprachübersetzung mit einem Mikrofon
 
@@ -258,7 +258,7 @@ In dieser Übung haben Sie Audiodateien für die Spracheingabe und -ausgabe verw
             "hi": "hi-IN-MadhurNeural"
    }
    speech_config.speech_synthesis_voice_name = voices.get(targetLanguage)
-   audio_config_out = speech_sdk.audio.AudioConfig(use_default_speaker=True)
+   audio_config_out = speech_sdk.audio.AudioOutputConfig(use_default_speaker=True)
    speech_synthesizer = speech_sdk.SpeechSynthesizer(speech_config, audio_config_out)
    speak = speech_synthesizer.speak_text_async(translation).get()
    if speak.reason != speech_sdk.ResultReason.SynthesizingAudioCompleted:
