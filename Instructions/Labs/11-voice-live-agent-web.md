@@ -248,7 +248,7 @@ Es gibt nur zwei Werte, die Sie oben im **azdeploy.sh** Bereitstellungsskript ä
 1. Führen Sie die folgenden Befehle in der Cloud Shell aus, um mit der Bearbeitung des Bereitstellungsskripts zu beginnen.
 
     ```bash
-    cd ~/voice-live-web
+    cd ~/01-voice-live-web
     ```
     
     ```bash
