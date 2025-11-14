@@ -44,7 +44,7 @@ Wenn Sie noch nicht über eine solche Ressource in Ihrem Abonnement verfügen, m
 
 ## Erstellen eines „Fragen und Antworten“-Projekt
 
-Wenn Sie eine Wissensdatenbank für Fragen und Antworten in Ihrer Azure KI Language-Ressource erstellen möchten, können Sie das Language Studio-Portal zum Erstellen eines „Fragen und Antworten“-Projekts verwenden. In diesem Fall erstellen Sie eine Wissensdatenbank mit Fragen und Antworten zu [Microsoft Learn](https://docs.microsoft.com/learn).
+Wenn Sie eine Wissensdatenbank für Fragen und Antworten in Ihrer Azure KI Language-Ressource erstellen möchten, können Sie das Language Studio-Portal zum Erstellen eines „Fragen und Antworten“-Projekts verwenden. In diesem Fall erstellen Sie eine Wissensdatenbank mit Fragen und Antworten zu [Microsoft Learn](https://learn.microsoft.com/training/).
 
 1. Navigieren Sie auf einer neuen Browserregisterkarte zum Language Studio-Portal unter [https://language.cognitive.azure.com/](https://language.cognitive.azure.com/), und melden Sie sich mit dem Microsoft-Konto an, das Ihrem Azure-Abonnement zugeordnet ist.
 1. Wenn Sie zur Auswahl einer Language-Ressource aufgefordert werden, wählen Sie die folgenden Einstellungen aus:
@@ -75,7 +75,7 @@ Sie können eine Wissensdatenbank von Grund auf neu erstellen, aber es ist übli
 
 1. Wählen Sie auf der Seite **Manage sources** (Quellen verwalten) für Ihr „Fragen und Antworten“-Projekt in der Liste **&#9547; Add source** (Quelle hinzufügen) die Option **URLs** aus. Wählen Sie dann im Dialogfeld **URLs hinzufügen** die Option **+ URL hinzufügen** aus, und geben Sie den folgenden Namen und die URL ein, bevor Sie **Alle hinzufügen** auswählen, um sie der Wissensdatenbank hinzuzufügen:
     - **Name**: `Learn FAQ Page`
-    - **URL**: `https://docs.microsoft.com/en-us/learn/support/faq`
+    - **URL**: `https://learn.microsoft.com/en-us/training/support/faq?pivots=general`
 1. Wählen Sie auf der Seite **Manage sources** (Quellen verwalten) für Ihr „Fragen und Antworten“-Projekt in der Liste **&#9547; Add source** (Quelle hinzufügen) die Option **Chitchat** (Smalltalk) aus. Wählen Sie im Dialogfeld **Smalltalk hinzufügen** die Option **Freundlich** aus, und wählen Sie anschließend **Smalltalk hinzufügen** aus.
 
 ## Bearbeiten der Wissensdatenbank
@@ -84,18 +84,18 @@ Ihre Wissensdatenbank wurde mit Frage-Antwort-Paaren aus den häufig gestellten 
 
 1. Wählen Sie in Ihrem **LearnFAQ**-Projekt in Language Studio die Seite **Wissensdatenbank bearbeiten** aus, um die vorhandenen Frage-Antwort-Paare zu sehen (wenn einige Tipps angezeigt werden, lesen Sie diese, und wählen Sie **Verstanden** aus, um sie zu schließen, oder wählen Sie **Alle überspringen** aus).
 1. Wählen Sie in der Wissensdatenbank auf der Registerkarte **Frage-Antwort-Paare** die Option **＋** aus, und erstellen Sie ein neues Frage-Antwort-Paar mit den folgenden Einstellungen:
-    - **Quelle**: `https://docs.microsoft.com/en-us/learn/support/faq`
-    - **Frage**: `What are Microsoft credentials?`
-    - **Antwort**: `Microsoft credentials enable you to validate and prove your skills with Microsoft technologies.`
+    - **Quelle**: `https://learn.microsoft.com/en-us/training/support/faq?pivots=general`
+    - **Frage**: `What are the different types of modules on Microsoft Learn?`
+    - **Antwort**: `Microsoft Learn offers various types of training modules, including role-based learning paths, product-specific modules, and hands-on labs. Each module contains units with lessons and knowledge checks to help you learn at your own pace.`
 1. Wählen Sie **Fertig** aus.
-1. Erweitern Sie auf der Seite der Frage **Was sind Microsoft-Zertifizierungen?** den Eintrag **Alternative Fragen**. Fügen Sie dann die alternative Frage `How can I demonstrate my Microsoft technology skills?` hinzu.
+1. Erweitern Sie auf der Seite für die Frage **Welche verschiedenen Modultypen gibt es auf Microsoft Learn?**, die erstellt wird, die Option **Alternative Fragen**. Fügen Sie dann die alternative Frage `How are training modules organized?` hinzu.
 
     In einigen Fällen ist es sinnvoll, Benutzer*innen eine Nachverfolgung der Antwort zu ermöglichen, indem eine *mehrteilige* Unterhaltung erstellt wird. Mit deren Hilfe können Benutzer*innen die Frage iterativ verfeinern, um die benötigte Antwort zu erhalten.
 
-1. Erweitern Sie unter der Antwort, die Sie für die Zertifizierungsfrage eingegeben haben, den Eintrag **Folgeäußerungen**, und fügen Sie die folgende Folgeäußerung hinzu:
-    - **Text, der dem Benutzer in der Eingabeaufforderung angezeigt wird**: `Learn more about credentials`.
-    - Wählen Sie die Registerkarte **Verknüpfung zu neuem Paar erstellen** aus, und geben Sie den folgenden Text ein: `You can learn more about credentials on the [Microsoft credentials page](https://docs.microsoft.com/learn/credentials/).`
-    - Wählen Sie **Nur im kontextbezogenen Flow anzeigen** aus. Mit dieser Option wird sichergestellt, dass die Antwort nur jeweils im Kontext einer Folgefrage aus der ursprünglichen Zertifizierungsfrage zurückgegeben wird.
+1. Erweitern Sie unter der Antwort, die Sie für die Frage zu den Modultypen eingegeben haben, die **Folgeäußerungen** und fügen Sie die folgende Folgeäußerung hinzu:
+    - **Text, der dem Benutzer in der Eingabeaufforderung angezeigt wird**: `Learn more about training`.
+    - Wählen Sie die Registerkarte **Verknüpfung zu neuem Paar erstellen** aus, und geben Sie den folgenden Text ein: `You can explore modules and learning paths on the [Microsoft Learn training page](https://learn.microsoft.com/training/).`
+    - Wählen Sie **Nur im kontextbezogenen Flow anzeigen** aus. Mit dieser Option wird sichergestellt, dass die Antwort nur im Kontext einer Folgefrage der ursprünglichen Frage zu den Modultypen zurückgegeben wird.
 1. Wählen Sie **Äußerung hinzufügen** aus.
 
 ## Trainieren und Testen der Wissensdatenbank
@@ -107,8 +107,8 @@ Nachdem Sie nun über eine Wissensdatenbank verfügen, können Sie sie in Langua
 1. Deaktivieren Sie im Testbereich oben die Option **Kurzantwort einschließen** (falls sie nicht bereits deaktiviert wurde). Geben Sie dann unten die Nachricht `Hello` ein. Daraufhin sollte eine geeignete Antwort zurückgegeben werden.
 1. Geben Sie im Testbereich unten die Nachricht `What is Microsoft Learn?` ein. Es sollte eine entsprechende Antwort aus den häufig gestellten Fragen zurückgegeben werden.
 1. Geben Sie die Nachricht `Thanks!` ein. Eine entsprechende Smalltalkantwort sollte zurückgegeben werden.
-1. Geben Sie die Nachricht `Tell me about Microsoft credentials` ein. Die von Ihnen erstellte Antwort sollte zusammen mit einem Link zu einer Folgeäußerung zurückgegeben werden.
-1. Klicken Sie auf den Link zur Folgeäußerung **Learn more about credentials**. Die Folgeantwort mit einem Link zur Zertifizierungsseite sollte zurückgegeben werden.
+1. Geben Sie die Nachricht `What are the different types of modules on Microsoft Learn?` ein. Die von Ihnen erstellte Antwort sollte zusammen mit einem Link zu einer Folgeäußerung zurückgegeben werden.
+1. Wählen Sie den Folge-Link **Weitere Informationen zum Training** aus. Es sollte die Folgeantwort mit einem Link zur Trainingsseite zurückgegeben werden.
 1. Wenn Sie mit dem Testen der Wissensdatenbank fertig sind, schließen Sie den Testbereich.
 
 ## Bereitstellen der Wissensdatenbank
